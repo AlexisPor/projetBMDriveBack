@@ -1,12 +1,11 @@
 package com.projetBMDrive.entities;
-// Generated 8 juin 2021 � 11:44:16 by Hibernate Tools 5.0.6.Final
+// Generated 8 juin 2021 � 13:57:09 by Hibernate Tools 5.0.6.Final
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
+import java.math.BigDecimal;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -18,38 +17,47 @@ import javax.persistence.Table;
 @Table(name = "T_LIVRE", schema = "BMDRIVE")
 public class TLivre implements java.io.Serializable {
 
-	private TLivreId id;
+	private BigDecimal livId;
 	private TArticle TArticle;
+	private BigDecimal livNbPages;
 
 	public TLivre() {
 	}
 
-	public TLivre(TLivreId id, TArticle TArticle) {
-		this.id = id;
+	public TLivre(BigDecimal livId, TArticle TArticle, BigDecimal livNbPages) {
+		this.livId = livId;
 		this.TArticle = TArticle;
+		this.livNbPages = livNbPages;
 	}
 
-	@EmbeddedId
+	@Id
 
-	@AttributeOverrides({
-			@AttributeOverride(name = "livNbPages", column = @Column(name = "LIV_NB_PAGES", nullable = false, precision = 22, scale = 0)),
-			@AttributeOverride(name = "livObjetId", column = @Column(name = "LIV_OBJET_ID", nullable = false, precision = 22, scale = 0)) })
-	public TLivreId getId() {
-		return this.id;
+	@Column(name = "LIV_ID", unique = true, nullable = false, precision = 22, scale = 0)
+	public BigDecimal getLivId() {
+		return this.livId;
 	}
 
-	public void setId(TLivreId id) {
-		this.id = id;
+	public void setLivId(BigDecimal livId) {
+		this.livId = livId;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "LIV_OBJET_ID", nullable = false, insertable = false, updatable = false)
+	@JoinColumn(name = "LIV_OBJET_ID", nullable = false)
 	public TArticle getTArticle() {
 		return this.TArticle;
 	}
 
 	public void setTArticle(TArticle TArticle) {
 		this.TArticle = TArticle;
+	}
+
+	@Column(name = "LIV_NB_PAGES", nullable = false, precision = 22, scale = 0)
+	public BigDecimal getLivNbPages() {
+		return this.livNbPages;
+	}
+
+	public void setLivNbPages(BigDecimal livNbPages) {
+		this.livNbPages = livNbPages;
 	}
 
 }
