@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-schema="BMDRIVE" match-name="T_ADHERENT"/>
+  <table-filter match-schema="BMDRIVE" match-name="T_ADRESSE"/>
+  <table-filter match-schema="BMDRIVE" match-name="T_AGENTBM"/>
+  <table-filter match-schema="BMDRIVE" match-name="T_ARTICLE"/>
+  <table-filter match-schema="BMDRIVE" match-name="T_CASIER"/>
+  <table-filter match-schema="BMDRIVE" match-name="T_CATEGORIE"/>
+  <table-filter match-schema="BMDRIVE" match-name="T_IDENTITE"/>
+  <table-filter match-schema="BMDRIVE" match-name="T_LIVRE"/>
+  <table-filter match-schema="BMDRIVE" match-name="T_PANIER"/>
+  <table-filter match-schema="BMDRIVE" match-name="T_RESERVATION"/>
+  <table-filter match-schema="BMDRIVE" match-name="T_SUPPORTMEDIA"/>
+  <table-filter match-schema="BMDRIVE" match-name="T_VISITEUR"/>
+</hibernate-reverse-engineering>
