@@ -1,12 +1,11 @@
 package com.projetBMDrive.entities;
-// Generated 8 juin 2021 � 11:44:16 by Hibernate Tools 5.0.6.Final
+// Generated 8 juin 2021 � 13:57:09 by Hibernate Tools 5.0.6.Final
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
+import java.math.BigDecimal;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -18,39 +17,58 @@ import javax.persistence.Table;
 @Table(name = "T_SUPPORTMEDIA", schema = "BMDRIVE")
 public class TSupportmedia implements java.io.Serializable {
 
-	private TSupportmediaId id;
+	private BigDecimal supId;
 	private TArticle TArticle;
+	private String supType;
+	private BigDecimal supDuree;
 
 	public TSupportmedia() {
 	}
 
-	public TSupportmedia(TSupportmediaId id, TArticle TArticle) {
-		this.id = id;
+	public TSupportmedia(BigDecimal supId, TArticle TArticle, String supType, BigDecimal supDuree) {
+		this.supId = supId;
 		this.TArticle = TArticle;
+		this.supType = supType;
+		this.supDuree = supDuree;
 	}
 
-	@EmbeddedId
+	@Id
 
-	@AttributeOverrides({
-			@AttributeOverride(name = "supType", column = @Column(name = "SUP_TYPE", nullable = false, length = 20)),
-			@AttributeOverride(name = "supDuree", column = @Column(name = "SUP_DUREE", nullable = false, precision = 22, scale = 0)),
-			@AttributeOverride(name = "supObjetId", column = @Column(name = "SUP_OBJET_ID", nullable = false, precision = 22, scale = 0)) })
-	public TSupportmediaId getId() {
-		return this.id;
+	@Column(name = "SUP_ID", unique = true, nullable = false, precision = 22, scale = 0)
+	public BigDecimal getSupId() {
+		return this.supId;
 	}
 
-	public void setId(TSupportmediaId id) {
-		this.id = id;
+	public void setSupId(BigDecimal supId) {
+		this.supId = supId;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "SUP_OBJET_ID", nullable = false, insertable = false, updatable = false)
+	@JoinColumn(name = "SUP_OBJET_ID", nullable = false)
 	public TArticle getTArticle() {
 		return this.TArticle;
 	}
 
 	public void setTArticle(TArticle TArticle) {
 		this.TArticle = TArticle;
+	}
+
+	@Column(name = "SUP_TYPE", nullable = false, length = 20)
+	public String getSupType() {
+		return this.supType;
+	}
+
+	public void setSupType(String supType) {
+		this.supType = supType;
+	}
+
+	@Column(name = "SUP_DUREE", nullable = false, precision = 22, scale = 0)
+	public BigDecimal getSupDuree() {
+		return this.supDuree;
+	}
+
+	public void setSupDuree(BigDecimal supDuree) {
+		this.supDuree = supDuree;
 	}
 
 }

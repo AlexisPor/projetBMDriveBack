@@ -1,5 +1,5 @@
 package com.projetBMDrive.entities;
-// Generated 8 juin 2021 � 11:44:16 by Hibernate Tools 5.0.6.Final
+// Generated 8 juin 2021 � 13:57:09 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
 import java.util.Date;
