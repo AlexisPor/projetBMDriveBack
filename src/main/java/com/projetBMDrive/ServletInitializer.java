@@ -1,4 +1,4 @@
-package com.projet.bMBrive;
+package com.projetBMDrive;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
