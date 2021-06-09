@@ -45,7 +45,7 @@ public class TCasier implements java.io.Serializable {
 	public void setCasId(BigDecimal casId) {
 		this.casId = casId;
 	}
-	
+
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TCasier")
 	public Set<TReservation> getTReservations() {
