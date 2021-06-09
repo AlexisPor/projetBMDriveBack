@@ -59,7 +59,8 @@ public class TReservation implements java.io.Serializable {
 	public void setResIdReservation(BigDecimal resIdReservation) {
 		this.resIdReservation = resIdReservation;
 	}
-
+	
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "RES_ID_CASIER", nullable = false)
 	public TCasier getTCasier() {
@@ -89,7 +90,7 @@ public class TReservation implements java.io.Serializable {
 	public void setTAgentbms(Set<TAgentbm> TAgentbms) {
 		this.TAgentbms = TAgentbms;
 	}
-
+	
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TReservation")
 	public Set<TPanier> getTPaniers() {

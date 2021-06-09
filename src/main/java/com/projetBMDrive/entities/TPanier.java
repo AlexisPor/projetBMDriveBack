@@ -76,7 +76,7 @@ public class TPanier implements java.io.Serializable {
 	public void setTReservation(TReservation TReservation) {
 		this.TReservation = TReservation;
 	}
-
+	
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TPanier")
 	public Set<TVisiteur> getTVisiteurs() {
@@ -86,7 +86,8 @@ public class TPanier implements java.io.Serializable {
 	public void setTVisiteurs(Set<TVisiteur> TVisiteurs) {
 		this.TVisiteurs = TVisiteurs;
 	}
-
+	
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TPanier")
 	public Set<TAdherent> getTAdherents() {
 		return this.TAdherents;
