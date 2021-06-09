@@ -22,31 +22,31 @@ import com.projetBMDrive.services.VisiteurService;
 public class VisiteurRestController {
 
 	@Autowired
-	VisiteurService visService;
+	private VisiteurService visService;
 	
-	@GetMapping("/list")
+	@GetMapping("/visMap")
 	public List<TVisiteur> findAllVisiteur(){
 		return visService.findAllVisiteur();
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("/visMap")
 	public void addVisiteur(@RequestBody TVisiteur visiteur) {
 		visService.addVisiteur(visiteur);
 		
 	}
 	
-	@PutMapping("/update/{visIdVisiteur}")
+	@PutMapping("/visMap/{visIdVisiteur}")
 	public void updateVisiteur(@RequestBody TVisiteur visiteur) {
 		visService.updateVisiteur(visiteur);
 	}
 	
-	@DeleteMapping("/delete/{visIdVisiteur}")
+	@DeleteMapping("/visMap/{visIdVisiteur}")
 	public void deleteVisiteur(BigDecimal visIdVisiteur) {
 		TVisiteur visiteur = visService.findByIdVisiteur(visIdVisiteur);
 		visService.deleteVisiteur(visiteur);
 	}
 	
-	 @GetMapping("/find/{visIdVisiteur}")
+	 @GetMapping("/visMap/{visIdVisiteur}")
 		public TVisiteur findByIdVisiteur(BigDecimal visIdVisiteur) {
 			
 			return visService.findByIdVisiteur(visIdVisiteur);

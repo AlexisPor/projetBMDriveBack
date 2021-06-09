@@ -24,28 +24,28 @@ public class AdherentRestController {
 	@Autowired
 	AdherentService adhService;
 	
-	@GetMapping("/list")
+	@GetMapping("/adhMap")
 	public List<TAdherent> findAllAdherent() {
 		return adhService.findAllAdherent();
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("/adhMap")
 	public void addAdherent(@RequestBody TAdherent adherent) {
 		adhService.addAdherent(adherent);
 	}
 	
-	@PutMapping("/update/{adhIdLecteur}")
+	@PutMapping("/adhMap/{adhIdLecteur}")
 	public void updateAdherent(@RequestBody TAdherent adherent) {
 		adhService.updateAdherent(adherent);
 	}
 	
-	@DeleteMapping("/delete/{adhIdLecteur}")
+	@DeleteMapping("/adhMap/{adhIdLecteur}")
 	public void deleteAdherent(BigDecimal adhIdLecteur) {
 		TAdherent adh = adhService.findByIdAdherent(adhIdLecteur);
 		adhService.deleteAdherent(adh);
 	}
 	
-	@GetMapping("/find/{adhIdLecteur}")
+	@GetMapping("/adhMap/{adhIdLecteur}")
 	public TAdherent findByIdAdherent(BigDecimal adhIdLecteur) {
 		return adhService.findByIdAdherent(adhIdLecteur);
 	}

@@ -22,28 +22,28 @@ public class IdentiteRestController {
 
 	IdentiteService idenService;
 	
-	@GetMapping("/list")
+	@GetMapping("/ideMap")
 	public List<TIdentite> findAllIdentite() {
 		return idenService.findAllIdentite();
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("/ideMap")
 	public void addIdentite(@RequestBody TIdentite identite) {
 		idenService.addIdentite(identite);
 	}
 	
-	@PutMapping("/update/{ideIdentite}")
-	public void update(@RequestBody TIdentite identite) {
+	@PutMapping("/ideMap/{ideIdentite}")
+	public void updateIdentite(@RequestBody TIdentite identite) {
 		idenService.updateIdentite(identite);
 	}
 	
-	@DeleteMapping("/delete/{idIdentite}")
+	@DeleteMapping("/ideMap/{idIdentite}")
 	public void deleteIdentite(BigDecimal idIdentite) {
 		TIdentite iden = idenService.findByIdIdentite(idIdentite);
 		idenService.deleteIdentite(iden);
 	}
 	
-	@GetMapping("/find/{idIdentite}")
+	@GetMapping("/ideMap/{idIdentite}")
 	public TIdentite findByIdIdentite(BigDecimal idIdentite) {
 		return idenService.findByIdIdentite(idIdentite);
 	}

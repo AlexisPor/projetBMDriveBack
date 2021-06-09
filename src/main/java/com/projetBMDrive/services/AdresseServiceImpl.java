@@ -19,31 +19,26 @@ public class AdresseServiceImpl implements AdresseService {
 	
 	@Override
 	public void addAdresse(TAdresse adresse) {
-		// TODO Auto-generated method stub
 		adresseRepo.save(adresse);
 	}
 
 	@Override
 	public void deleteAdresse(TAdresse adresse) {
-		// TODO Auto-generated method stub
 		adresseRepo.delete(adresse);
 	}
 
 	@Override
 	public void updateAdresse(TAdresse adresse) {
-		// TODO Auto-generated method stub
 		adresseRepo.save(adresse);
 	}
 
 	@Override
 	public List<TAdresse> findAllAdresse() {
-		// TODO Auto-generated method stub
 		return adresseRepo.findAll();
 	}
 
 	@Override
 	public TAdresse findByIdAdresse(BigDecimal adrId) {
-		// TODO Auto-generated method stub
 		return adresseRepo.findById(adrId).get();
 	}
 

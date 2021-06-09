@@ -19,31 +19,26 @@ public class AdherentServiceImpl implements AdherentService {
 	
 	@Override
 	public void addAdherent(TAdherent adherent) {
-		// TODO Auto-generated method stub
 		adherentRepo.save(adherent);
 	}
 
 	@Override
 	public void deleteAdherent(TAdherent adherent) {
-		// TODO Auto-generated method stub
 		adherentRepo.delete(adherent);
 	}
 
 	@Override
 	public void updateAdherent(TAdherent adherent) {
-		// TODO Auto-generated method stub
 		adherentRepo.save(adherent);
 	}
 
 	@Override
 	public List<TAdherent> findAllAdherent() {
-		// TODO Auto-generated method stub
 		return adherentRepo.findAll();
 	}
 
 	@Override
 	public TAdherent findByIdAdherent(BigDecimal adhIdLecteur) {
-		// TODO Auto-generated method stub
 		return adherentRepo.findById(adhIdLecteur).get();
 	}
 	

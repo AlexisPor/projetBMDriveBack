@@ -24,29 +24,29 @@ public class AdresseRestController {
 	@Autowired
 	AdresseService adrService;
 	
-	@GetMapping("/list")
-	public List<TAdresse> findAllAdr() {
+	@GetMapping("/adrMap")
+	public List<TAdresse> findAllAdresse() {
 		return adrService.findAllAdresse();
 		
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("/adrMap")
 	public void addAdresse(@RequestBody TAdresse adresse) {
 		adrService.addAdresse(adresse);
 	}
 	
-	@PutMapping("/update/{adrId}")
+	@PutMapping("/adrMap/{adrId}")
 	public void updateAdresse(@RequestBody TAdresse adresse) {
 		adrService.updateAdresse(adresse);
 	}
 	
-	@DeleteMapping("/delete/{adrId}")
+	@DeleteMapping("/adrMap/{adrId}")
 	public void deleteAdresse(BigDecimal adrId) {
 		TAdresse adr = adrService.findByIdAdresse(adrId);
 		adrService.deleteAdresse(adr);
 	}
 	
-	@GetMapping("/find/{adrId}")
+	@GetMapping("/adrMap/{adrId}")
 	public TAdresse findByIdAdresse(BigDecimal adrId) {
 		return adrService.findByIdAdresse(adrId);
 	}
