@@ -24,28 +24,49 @@ public class VisiteurRestController {
 	@Autowired
 	private VisiteurService visService;
 	
+	/**
+	 * Afficher la liste des visiteurs.
+	 * @return
+	 */
 	@GetMapping("/visMap")
 	public List<TVisiteur> findAllVisiteur(){
 		return visService.findAllVisiteur();
 	}
 	
+	/**
+	 * Ajout d'un visiteur.
+	 * @param visiteur
+	 */
 	@PostMapping("/visMap")
 	public void addVisiteur(@RequestBody TVisiteur visiteur) {
 		visService.addVisiteur(visiteur);
 		
 	}
 	
+	/**
+	 * Modifier les infos d'un visiteur.
+	 * @param visiteur
+	 */
 	@PutMapping("/visMap/{visIdVisiteur}")
 	public void updateVisiteur(@RequestBody TVisiteur visiteur) {
 		visService.updateVisiteur(visiteur);
 	}
 	
+	/**
+	 * Supprimer un visiteur.
+	 * @param visIdVisiteur
+	 */
 	@DeleteMapping("/visMap/{visIdVisiteur}")
 	public void deleteVisiteur(BigDecimal visIdVisiteur) {
 		TVisiteur visiteur = visService.findByIdVisiteur(visIdVisiteur);
 		visService.deleteVisiteur(visiteur);
 	}
 	
+	/**
+	 * Chercher un visiteur par son id.
+	 * @param visIdVisiteur
+	 * @return
+	 */
 	 @GetMapping("/visMap/{visIdVisiteur}")
 		public TVisiteur findByIdVisiteur(BigDecimal visIdVisiteur) {
 			

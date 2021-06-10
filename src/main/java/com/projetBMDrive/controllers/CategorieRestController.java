@@ -21,35 +21,58 @@ import com.projetBMDrive.services.CategorieServiceImpl;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/ca")
-public class CategorieController {
+public class CategorieRestController {
 
 	@Autowired
-	CategorieServiceImpl categorieService;
+	private CategorieServiceImpl categorieService;
 	
+	/**
+	 * Afficher la liste des catégories.
+	 * @return
+	 */
 	@GetMapping("/catMap") 
 	public List<TCategorie> findAllCategorie()
 	{
 		return categorieService.findAllCategorie();
 	}
 	
+	/**
+	 * Chercher une catégorie par son id.
+	 * @param catId
+	 * @param cat
+	 * @return
+	 */
 	@GetMapping("/catMap/{catId}") 
 	public TCategorie findCategorieById(@PathVariable("catId") BigDecimal catId, TCategorie cat)
 	{
 		return categorieService.findCategorieById(catId);
 	}
 	
+	/**
+	 * Ajout d'une catégorie.
+	 * @param cat
+	 */
 	@PostMapping("/catMap")
 	public void addCategorie(@RequestBody TCategorie cat) 
 	{
 		categorieService.addCategorie(cat);
 	}
 	
+	/**
+	 * Modifier les infos d'une catégorie.
+	 * @param cat
+	 */
 	@PutMapping("/catMap/{catId}")
 	public void updateCategorie(@RequestBody TCategorie cat)
 	{
 		 categorieService.updateCategorie(cat);
 	}
 	
+	/**
+	 * Supprimer une catégorie.
+	 * @param catId
+	 * @param cat
+	 */
 	@DeleteMapping("/catMap/{catId}")
 	public void deleteCategorie(@PathVariable("catId") BigDecimal catId, TCategorie cat) 
 	{

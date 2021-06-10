@@ -23,8 +23,12 @@ import com.projetBMDrive.services.AgentBMServiceImpl;
 public class AgentBMRestController {
 
 	@Autowired
-	AgentBMServiceImpl agentBMService;
+	private AgentBMServiceImpl agentBMService;
 
+	/**
+	 * Ajout d'un agent.
+	 * @param abm
+	 */
 	@PostMapping("/agMap")
 	public void add(@RequestBody TAgentbm abm) {
 
@@ -32,22 +36,40 @@ public class AgentBMRestController {
 
 	}
 
+	/**
+	 * Afficher la liste des agents.
+	 * @return
+	 */
 	@GetMapping("/agMap")
 	public List<TAgentbm> findAll() {
 
 		return agentBMService.findAll();
 	}
 
+	/**
+	 * Chercher un agent par son id.
+	 * @param abmId
+	 * @return
+	 */
 	@GetMapping("/agMap/{abmId}")
 	public TAgentbm findById(@PathVariable BigDecimal abmId) {
 		return agentBMService.findById(abmId);
 	}
 
+	/**
+	 * Supprimer un agent.	 
+	 * @param abmId
+	 * @param abm
+	 */
 	@DeleteMapping("/agMap/{abmId}")
 	public void delete(@PathVariable BigDecimal abmId, TAgentbm abm) {
 		agentBMService.delete(abm);
 	}
 
+	/**
+	 * Modifier les infos d'un agent.
+	 * @param abm
+	 */
 	@PutMapping("/agMap/{abmId}")
 	public void updateAgentBM(@RequestBody TAgentbm abm) {
 

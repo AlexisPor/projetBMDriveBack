@@ -22,30 +22,51 @@ import com.projetBMDrive.services.AdresseService;
 public class AdresseRestController {
 	
 	@Autowired
-	AdresseService adrService;
+	private AdresseService adrService;
 	
+	/**
+	 * Afficher la liste des adresses.
+	 * @return
+	 */
 	@GetMapping("/adrMap")
 	public List<TAdresse> findAllAdresse() {
 		return adrService.findAllAdresse();
 		
 	}
 	
+	/**
+	 * Ajout d'une adresse.
+	 * @param adresse
+	 */
 	@PostMapping("/adrMap")
 	public void addAdresse(@RequestBody TAdresse adresse) {
 		adrService.addAdresse(adresse);
 	}
 	
+	/**
+	 * Modifier les infos de l'adresse.
+	 * @param adresse
+	 */
 	@PutMapping("/adrMap/{adrId}")
 	public void updateAdresse(@RequestBody TAdresse adresse) {
 		adrService.updateAdresse(adresse);
 	}
 	
+	/**
+	 * Supprimer une adresse.
+	 * @param adrId
+	 */
 	@DeleteMapping("/adrMap/{adrId}")
 	public void deleteAdresse(BigDecimal adrId) {
 		TAdresse adr = adrService.findByIdAdresse(adrId);
 		adrService.deleteAdresse(adr);
 	}
 	
+	/**
+	 * Chercher une adresse par son id.
+	 * @param adrId
+	 * @return
+	 */
 	@GetMapping("/adrMap/{adrId}")
 	public TAdresse findByIdAdresse(BigDecimal adrId) {
 		return adrService.findByIdAdresse(adrId);

@@ -20,35 +20,58 @@ import com.projetBMDrive.services.SupportmediaServiceImpl;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/sm")
-public class SupportmediaController {
+public class SupportmediaRestController {
 
 	@Autowired
-	SupportmediaServiceImpl supmedService;
+	private SupportmediaServiceImpl supmedService;
 	
+	/**
+	 * Afficher la liste des médias.
+	 * @return
+	 */
 	@GetMapping("/smMap") 
 	public List<TSupportmedia> findAllSuppermedia()
 	{
 		return supmedService.findAllSupportmedia();
 	}
 	
+	/**
+	 * Chercher un média par son id.
+	 * @param supId
+	 * @param supmedia
+	 * @return
+	 */
 	@GetMapping("/smMap/{supId}") 
 	public TSupportmedia findSuppermediaById(@PathVariable("supId") BigDecimal supId, TSupportmedia supmedia)
 	{
 		return supmedService.findSupportmediaById(supId);
 	}
 	
+	/**
+	 * Ajout d'un média.
+	 * @param supmedia
+	 */
 	@PostMapping("/smMap")
 	public void addSuppermedia(@RequestBody TSupportmedia supmedia) 
 	{
 		supmedService.addSupportmedia(supmedia);
 	}
 	
+	/**
+	 * Modifier les infos d'un média.
+	 * @param supmedia
+	 */
 	@PutMapping("/smMap/{supId}")
 	public void updateSuppermedia(@RequestBody TSupportmedia supmedia)
 	{
 		 supmedService.updateSupportmedia(supmedia);
 	}
 	
+	/**
+	 * Supprimer un média.
+	 * @param supId
+	 * @param supmedia
+	 */
 	@DeleteMapping("/smMap/{supId}")
 	public void deleteSuppermedia(@PathVariable("supId") BigDecimal supId, TSupportmedia supmedia) 
 	{

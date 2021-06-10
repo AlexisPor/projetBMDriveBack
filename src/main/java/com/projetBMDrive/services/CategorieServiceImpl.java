@@ -15,7 +15,7 @@ import com.projetBMDrive.repositories.CategorieRepository;
 public class CategorieServiceImpl  implements CategorieService{
 
 	@Autowired
-	CategorieRepository categorieRepos;
+	private CategorieRepository categorieRepos;
 
 	@Override
 	public void addCategorie(TCategorie categorie) {

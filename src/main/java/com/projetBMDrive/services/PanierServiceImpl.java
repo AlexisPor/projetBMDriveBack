@@ -15,7 +15,7 @@ import com.projetBMDrive.repositories.PanierRepository;
 public class PanierServiceImpl implements PanierService{
 	
 	@Autowired
-	PanierRepository panierRepository;
+	private PanierRepository panierRepository;
 
 	@Override
 	public void add(TPanier pan) {

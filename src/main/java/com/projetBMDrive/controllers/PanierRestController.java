@@ -24,31 +24,53 @@ public class PanierRestController {
 
 		
 		@Autowired
-		PanierService panierService;
+		private PanierService panierService;
 		
+		/**
+		 * Ajout d'un panier
+		 * @param pan
+		 */
 		@PostMapping("/panMap")
 		public void add(@RequestBody TPanier pan) {
 
 			panierService.add(pan);
 		}
 
+		/**
+		 * Afficher la liste des paniers.
+		 * @return
+		 */
 		@GetMapping("/panMap")
 		public List<TPanier> findAll() {
 
 			return panierService.findAll();
 		}
 		
+		/**
+		 * Chercher un panier par son id.
+		 * @param panId
+		 * @return
+		 */
 		@GetMapping("/panMap/{panId}")
 		public TPanier findById(@PathVariable BigDecimal panId) {
 			return panierService.findById(panId);
 		}
 
+		/**
+		 * Supprimer un panier.
+		 * @param panId
+		 * @param pan
+		 */
 		@DeleteMapping("/panMap/{panId}")
 		public void delete(@PathVariable BigDecimal panId,TPanier pan) {
 
 			panierService.delete(pan);
 		}
 
+		/**
+		 * Modifier les infos du panier.
+		 * @param pan
+		 */
 		@PutMapping("/panMap/{panId}")
 		public void updatePanier(@RequestBody TPanier pan) {
 

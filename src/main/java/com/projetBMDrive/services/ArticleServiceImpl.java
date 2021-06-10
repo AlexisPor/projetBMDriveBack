@@ -15,7 +15,7 @@ import com.projetBMDrive.repositories.ArticleRepository;
 public class ArticleServiceImpl  implements ArticleService{
 
 	@Autowired
-	ArticleRepository articleRepos;
+	private ArticleRepository articleRepos;
 
 	@Override
 	public void addArticle(TArticle article) {

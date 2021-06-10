@@ -23,31 +23,53 @@ import com.projetBMDrive.services.ReservationService;
 public class ReservationRestController {
 
 	@Autowired
-	ReservationService reservationService;
+	private ReservationService reservationService;
 
+	/**
+	 * Ajout d'une réservation.
+	 * @param res
+	 */
 	@PostMapping("/resMap")
 	public void add(@RequestBody TReservation res) {
 
 		reservationService.add(res);
 	}
 
+	/**
+	 * Afficher la liste des réservations.
+	 * @return
+	 */
 	@GetMapping("/resMap")
 	public List<TReservation> findAll() {
 
 		return reservationService.findAll();
 	}
 
+	/**
+	 * Chercher une réservation par son id.	 
+	 * @param resIdReservation
+	 * @return
+	 */
 	@GetMapping("/resMap/{resIdReservation}")
 	public TReservation findById(@PathVariable BigDecimal resIdReservation) {
 		return reservationService.findById(resIdReservation);
 	}
 
+	/**
+	 * Supprimer une réservation.
+	 * @param resIdReservation
+	 * @param res
+	 */
 	@DeleteMapping("/resMap/{resIdReservation}")
 	public void delete(@PathVariable BigDecimal resIdReservation, TReservation res) {
 
 		reservationService.delete(res);
 	}
 
+	/**
+	 * Modifier les infos d'une réservation.
+	 * @param res
+	 */
 	@PutMapping("/resMap/{resIdReservation}")
 	public void updateReservation(@RequestBody TReservation res) {
 

@@ -15,7 +15,7 @@ import com.projetBMDrive.repositories.CasierRepository;
 public class CasierServiceImpl implements CasierService{
 	
 	@Autowired
-	CasierRepository casierRepository;
+	private CasierRepository casierRepository;
 
 	@Override
 	public void add(TCasier cas) {

@@ -15,7 +15,7 @@ import com.projetBMDrive.repositories.LivreRepository;
 public class LivreServiceImpl  implements LivreService{
 
 	@Autowired
-	LivreRepository livreRepos;
+	private LivreRepository livreRepos;
 	
 	@Override
 	public void addLivre(TLivre livre) {

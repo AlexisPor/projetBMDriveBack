@@ -22,29 +22,50 @@ import com.projetBMDrive.services.AdherentService;
 public class AdherentRestController {
 	
 	@Autowired
-	AdherentService adhService;
+	private AdherentService adhService;
 	
+	/**
+	 * Afficher la liste des adherents.
+	 * @return
+	 */
 	@GetMapping("/adhMap")
 	public List<TAdherent> findAllAdherent() {
 		return adhService.findAllAdherent();
 	}
 	
+	/**
+	 * Ajout d'un adherent.
+	 * @param adherent
+	 */
 	@PostMapping("/adhMap")
 	public void addAdherent(@RequestBody TAdherent adherent) {
 		adhService.addAdherent(adherent);
 	}
 	
+	/**
+	 * Modifier les infos de l'adherent.
+	 * @param adherent
+	 */
 	@PutMapping("/adhMap/{adhIdLecteur}")
 	public void updateAdherent(@RequestBody TAdherent adherent) {
 		adhService.updateAdherent(adherent);
 	}
 	
+	/**
+	 * Supprimer un adherent.
+	 * @param adhIdLecteur
+	 */
 	@DeleteMapping("/adhMap/{adhIdLecteur}")
 	public void deleteAdherent(BigDecimal adhIdLecteur) {
 		TAdherent adh = adhService.findByIdAdherent(adhIdLecteur);
 		adhService.deleteAdherent(adh);
 	}
 	
+	/**
+	 * Chercher un adherent par son id.
+	 * @param adhIdLecteur
+	 * @return
+	 */
 	@GetMapping("/adhMap/{adhIdLecteur}")
 	public TAdherent findByIdAdherent(BigDecimal adhIdLecteur) {
 		return adhService.findByIdAdherent(adhIdLecteur);

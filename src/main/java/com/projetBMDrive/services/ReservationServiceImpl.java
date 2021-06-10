@@ -15,7 +15,7 @@ import com.projetBMDrive.repositories.ReservationRepository;
 public class ReservationServiceImpl implements ReservationService {
 	
 	@Autowired
-	ReservationRepository reservationRepository;
+	private ReservationRepository reservationRepository;
 
 	@Override
 	public void add(TReservation res) {

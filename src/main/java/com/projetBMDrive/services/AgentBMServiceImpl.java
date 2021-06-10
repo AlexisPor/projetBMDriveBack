@@ -16,7 +16,7 @@ import com.projetBMDrive.repositories.AgentBMRepository;
 public class AgentBMServiceImpl implements AgentBMService {
 
 	@Autowired
-	AgentBMRepository agentBMRepo;
+	private AgentBMRepository agentBMRepo;
 	
 	@Override
 	public void add(TAgentbm abm) {

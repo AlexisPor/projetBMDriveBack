@@ -15,7 +15,7 @@ import com.projetBMDrive.repositories.SupportmediaRepository;
 public class SupportmediaServiceImpl  implements SupportmediaService{
 
 	@Autowired
-	SupportmediaRepository supmedRepos;
+	private SupportmediaRepository supmedRepos;
 
 	@Override
 	public void addSupportmedia(TSupportmedia supmed) {

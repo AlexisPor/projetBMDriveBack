@@ -22,13 +22,13 @@ import com.projetBMDrive.services.ArticleServiceImpl;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/ar")
-public class ArticleController {
+public class ArticleRestController {
 
 	@Autowired
-	ArticleServiceImpl articleService;
+	private ArticleServiceImpl articleService;
 	
 	/**
-	 * Liste des articles
+	 * Afficher la liste des articles.
 	 * @return
 	 */
 	@GetMapping("/artMap") 
@@ -37,24 +37,43 @@ public class ArticleController {
 		return articleService.findAllArticle();
 	}
 	
+	/**
+	 * Chercher un article par son id.
+	 * @param artIdObjet
+	 * @param article
+	 * @return
+	 */
 	@GetMapping("/artMap/{artIdObjet}") 
 	public TArticle findArticleById(@PathVariable("artIdObjet") BigDecimal artIdObjet, TArticle article)
 	{
 		return articleService.findArticleById(artIdObjet);
 	}
 	
+	/**
+	 * Ajout d'un article.
+	 * @param article
+	 */
 	@PostMapping("/artMap")
 	public void addArticle(@RequestBody TArticle article) 
 	{
 		articleService.addArticle(article);
 	}
 	
+	/**
+	 * Modifier les infos d'un article.
+	 * @param article
+	 */
 	@PutMapping("/artMap/{artIdObjet}")
 	public void updateArticle(@RequestBody TArticle article)
 	{
 		 articleService.updateArticle(article);
 	}
 	
+	/**
+	 * Supprimer un article.
+	 * @param artIdObjet
+	 * @param article
+	 */
 	@DeleteMapping("/artMap/{artIdObjet}")
 	public void deleteArticle(@PathVariable("artIdObjet") BigDecimal artIdObjet, TArticle article) 
 	{

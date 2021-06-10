@@ -20,35 +20,58 @@ import com.projetBMDrive.services.LivreServiceImpl;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/li")
-public class LivreController {
+public class LivreRestController {
 
 	@Autowired
-	LivreServiceImpl livreService;
+	private LivreServiceImpl livreService;
 	
+	/**
+	 * Afficher la liste des livres.
+	 * @return
+	 */
 	@GetMapping("/livMap") 
 	public List<TLivre> findAllLivre()
 	{
 		return livreService.findAllLivre();
 	}
 	
+	/**
+	 * Chercher un livre par son id.
+	 * @param livId
+	 * @param livre
+	 * @return
+	 */
 	@GetMapping("/livMap/{livId}") 
 	public TLivre findLivreById(@PathVariable("livId") BigDecimal livId, TLivre livre)
 	{
 		return livreService.findLivreById(livId);
 	}
 	
+	/**
+	 * Ajout d'un livre.
+	 * @param livre
+	 */
 	@PostMapping("/livMap")
 	public void addLivre(@RequestBody TLivre livre) 
 	{
 		livreService.addLivre(livre);
 	}
 	
+	/**
+	 * Modifier les infos d'un livre.
+	 * @param livre
+	 */
 	@PutMapping("/livMap/{livId}")
 	public void updateLivre(@RequestBody TLivre livre)
 	{
 		 livreService.updateLivre(livre);
 	}
 	
+	/**
+	 * Supprimer un livre.
+	 * @param livId
+	 * @param livre
+	 */
 	@DeleteMapping("/livMap/{livId}")
 	public void deleteLivre(@PathVariable("livId") BigDecimal livId, TLivre livre) 
 	{
