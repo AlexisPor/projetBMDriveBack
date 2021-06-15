@@ -1,5 +1,5 @@
 package com.projetBMDrive.entities;
-// Generated 8 juin 2021 � 13:57:09 by Hibernate Tools 5.0.6.Final
+// Generated 14 juin 2021 � 17:47:08 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -7,8 +7,11 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,22 +24,26 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class TCasier implements java.io.Serializable {
 
 	private BigDecimal casId;
+	private String casNumero;
 	private Set<TReservation> TReservations = new HashSet<TReservation>(0);
 
 	public TCasier() {
 	}
 
-	public TCasier(BigDecimal casId) {
+	public TCasier(BigDecimal casId, String casNumero) {
 		this.casId = casId;
+		this.casNumero = casNumero;
 	}
 
-	public TCasier(BigDecimal casId, Set<TReservation> TReservations) {
+	public TCasier(BigDecimal casId, String casNumero, Set<TReservation> TReservations) {
 		this.casId = casId;
+		this.casNumero = casNumero;
 		this.TReservations = TReservations;
 	}
 
 	@Id
-
+	@SequenceGenerator(name="T_CASIER_SEQ", sequenceName = "T_CASIER_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="T_CASIER_SEQ")
 	@Column(name = "CAS_ID", unique = true, nullable = false, precision = 22, scale = 0)
 	public BigDecimal getCasId() {
 		return this.casId;
@@ -44,6 +51,15 @@ public class TCasier implements java.io.Serializable {
 
 	public void setCasId(BigDecimal casId) {
 		this.casId = casId;
+	}
+
+	@Column(name = "CAS_NUMERO", nullable = false, length = 20)
+	public String getCasNumero() {
+		return this.casNumero;
+	}
+
+	public void setCasNumero(String casNumero) {
+		this.casNumero = casNumero;
 	}
 
 	@JsonIgnore

@@ -1,5 +1,5 @@
 package com.projetBMDrive.entities;
-// Generated 8 juin 2021 � 13:57:09 by Hibernate Tools 5.0.6.Final
+// Generated 14 juin 2021 � 17:47:08 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -8,10 +8,13 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,7 +28,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "T_RESERVATION", schema = "BMDRIVE")
 public class TReservation implements java.io.Serializable {
 
-	private BigDecimal resIdReservation;
+	private BigDecimal resId;
 	private TCasier TCasier;
 	private Date resDateReservation;
 	private Set<TAgentbm> TAgentbms = new HashSet<TAgentbm>(0);
@@ -34,15 +37,15 @@ public class TReservation implements java.io.Serializable {
 	public TReservation() {
 	}
 
-	public TReservation(BigDecimal resIdReservation, TCasier TCasier, Date resDateReservation) {
-		this.resIdReservation = resIdReservation;
+	public TReservation(BigDecimal resId, TCasier TCasier, Date resDateReservation) {
+		this.resId = resId;
 		this.TCasier = TCasier;
 		this.resDateReservation = resDateReservation;
 	}
 
-	public TReservation(BigDecimal resIdReservation, TCasier TCasier, Date resDateReservation, Set<TAgentbm> TAgentbms,
+	public TReservation(BigDecimal resId, TCasier TCasier, Date resDateReservation, Set<TAgentbm> TAgentbms,
 			Set<TPanier> TPaniers) {
-		this.resIdReservation = resIdReservation;
+		this.resId = resId;
 		this.TCasier = TCasier;
 		this.resDateReservation = resDateReservation;
 		this.TAgentbms = TAgentbms;
@@ -50,16 +53,17 @@ public class TReservation implements java.io.Serializable {
 	}
 
 	@Id
-
-	@Column(name = "RES_ID_RESERVATION", unique = true, nullable = false, precision = 22, scale = 0)
-	public BigDecimal getResIdReservation() {
-		return this.resIdReservation;
+	@SequenceGenerator(name="T_RESERVATION_SEQ", sequenceName = "T_RESERVATION_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="T_RESERVATION_SEQ")
+	@Column(name = "RES_ID", unique = true, nullable = false, precision = 22, scale = 0)
+	public BigDecimal getResId() {
+		return this.resId;
 	}
 
-	public void setResIdReservation(BigDecimal resIdReservation) {
-		this.resIdReservation = resIdReservation;
+	public void setResId(BigDecimal resId) {
+		this.resId = resId;
 	}
-	
+
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "RES_ID_CASIER", nullable = false)
@@ -90,7 +94,7 @@ public class TReservation implements java.io.Serializable {
 	public void setTAgentbms(Set<TAgentbm> TAgentbms) {
 		this.TAgentbms = TAgentbms;
 	}
-	
+
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TReservation")
 	public Set<TPanier> getTPaniers() {

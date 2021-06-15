@@ -1,5 +1,5 @@
 package com.projetBMDrive.entities;
-// Generated 8 juin 2021 � 13:57:09 by Hibernate Tools 5.0.6.Final
+// Generated 14 juin 2021 � 17:47:08 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -8,8 +8,11 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,57 +26,54 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "T_ARTICLE", schema = "BMDRIVE")
 public class TArticle implements java.io.Serializable {
 
-	private BigDecimal artIdObjet;
+	private BigDecimal artId;
 	private String artCote;
 	private String artTitre;
 	private String artAuteur;
 	private Date artDateEmprunt;
 	private Date artDateRetour;
 	private Set<TLivre> TLivres = new HashSet<TLivre>(0);
-	private Set<TSupportmedia> TSupportmedias = new HashSet<TSupportmedia>(0);
 	private Set<TPanier> TPaniers = new HashSet<TPanier>(0);
 	private Set<TCategorie> TCategories = new HashSet<TCategorie>(0);
+	private Set<TSupportmedia> TSupportmedias = new HashSet<TSupportmedia>(0);
 
 	public TArticle() {
 	}
 
-	public TArticle(BigDecimal artIdObjet, String artCote, String artTitre, String artAuteur, Date artDateEmprunt,
-			Date artDateRetour) {
-		this.artIdObjet = artIdObjet;
-		this.artCote = artCote;
+	public TArticle(BigDecimal artId, String artTitre, String artAuteur) {
+		this.artId = artId;
 		this.artTitre = artTitre;
 		this.artAuteur = artAuteur;
-		this.artDateEmprunt = artDateEmprunt;
-		this.artDateRetour = artDateRetour;
 	}
 
-	public TArticle(BigDecimal artIdObjet, String artCote, String artTitre, String artAuteur, Date artDateEmprunt,
-			Date artDateRetour, Set<TLivre> TLivres, Set<TSupportmedia> TSupportmedias, Set<TPanier> TPaniers,
-			Set<TCategorie> TCategories) {
-		this.artIdObjet = artIdObjet;
+	public TArticle(BigDecimal artId, String artCote, String artTitre, String artAuteur, Date artDateEmprunt,
+			Date artDateRetour, Set<TLivre> TLivres, Set<TPanier> TPaniers, Set<TCategorie> TCategories,
+			Set<TSupportmedia> TSupportmedias) {
+		this.artId = artId;
 		this.artCote = artCote;
 		this.artTitre = artTitre;
 		this.artAuteur = artAuteur;
 		this.artDateEmprunt = artDateEmprunt;
 		this.artDateRetour = artDateRetour;
 		this.TLivres = TLivres;
-		this.TSupportmedias = TSupportmedias;
 		this.TPaniers = TPaniers;
 		this.TCategories = TCategories;
+		this.TSupportmedias = TSupportmedias;
 	}
 
 	@Id
-
-	@Column(name = "ART_ID_OBJET", unique = true, nullable = false, precision = 22, scale = 0)
-	public BigDecimal getArtIdObjet() {
-		return this.artIdObjet;
+	@SequenceGenerator(name="T_ARTICLE_SEQ", sequenceName = "T_ARTICLE_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="T_ARTICLE_SEQ")
+	@Column(name = "ART_ID", unique = true, nullable = false, precision = 22, scale = 0)
+	public BigDecimal getArtId() {
+		return this.artId;
 	}
 
-	public void setArtIdObjet(BigDecimal artIdObjet) {
-		this.artIdObjet = artIdObjet;
+	public void setArtId(BigDecimal artId) {
+		this.artId = artId;
 	}
 
-	@Column(name = "ART_COTE", nullable = false, length = 20)
+	@Column(name = "ART_COTE", length = 20)
 	public String getArtCote() {
 		return this.artCote;
 	}
@@ -101,7 +101,7 @@ public class TArticle implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "ART_DATE_EMPRUNT", nullable = false, length = 7)
+	@Column(name = "ART_DATE_EMPRUNT", length = 7)
 	public Date getArtDateEmprunt() {
 		return this.artDateEmprunt;
 	}
@@ -111,7 +111,7 @@ public class TArticle implements java.io.Serializable {
 	}
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "ART_DATE_RETOUR", nullable = false, length = 7)
+	@Column(name = "ART_DATE_RETOUR", length = 7)
 	public Date getArtDateRetour() {
 		return this.artDateRetour;
 	}
@@ -132,16 +132,6 @@ public class TArticle implements java.io.Serializable {
 
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TArticle")
-	public Set<TSupportmedia> getTSupportmedias() {
-		return this.TSupportmedias;
-	}
-
-	public void setTSupportmedias(Set<TSupportmedia> TSupportmedias) {
-		this.TSupportmedias = TSupportmedias;
-	}
-
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TArticle")
 	public Set<TPanier> getTPaniers() {
 		return this.TPaniers;
 	}
@@ -158,6 +148,16 @@ public class TArticle implements java.io.Serializable {
 
 	public void setTCategories(Set<TCategorie> TCategories) {
 		this.TCategories = TCategories;
+	}
+
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TArticle")
+	public Set<TSupportmedia> getTSupportmedias() {
+		return this.TSupportmedias;
+	}
+
+	public void setTSupportmedias(Set<TSupportmedia> TSupportmedias) {
+		this.TSupportmedias = TSupportmedias;
 	}
 
 }

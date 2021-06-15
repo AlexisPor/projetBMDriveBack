@@ -1,5 +1,5 @@
 package com.projetBMDrive.entities;
-// Generated 8 juin 2021 � 13:57:09 by Hibernate Tools 5.0.6.Final
+// Generated 14 juin 2021 � 17:47:08 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -7,10 +7,13 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -22,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "T_IDENTITE", schema = "BMDRIVE")
 public class TIdentite implements java.io.Serializable {
 
-	private BigDecimal ideIdentite;
+	private BigDecimal ideId;
 	private TAdresse TAdresse;
 	private String ideNom;
 	private String idePrenom;
@@ -37,9 +40,9 @@ public class TIdentite implements java.io.Serializable {
 	public TIdentite() {
 	}
 
-	public TIdentite(BigDecimal ideIdentite, TAdresse TAdresse, String ideNom, String idePrenom, BigDecimal ideAge,
+	public TIdentite(BigDecimal ideId, TAdresse TAdresse, String ideNom, String idePrenom, BigDecimal ideAge,
 			char ideSexe, String ideTelephone, String ideMail) {
-		this.ideIdentite = ideIdentite;
+		this.ideId = ideId;
 		this.TAdresse = TAdresse;
 		this.ideNom = ideNom;
 		this.idePrenom = idePrenom;
@@ -49,10 +52,10 @@ public class TIdentite implements java.io.Serializable {
 		this.ideMail = ideMail;
 	}
 
-	public TIdentite(BigDecimal ideIdentite, TAdresse TAdresse, String ideNom, String idePrenom, BigDecimal ideAge,
+	public TIdentite(BigDecimal ideId, TAdresse TAdresse, String ideNom, String idePrenom, BigDecimal ideAge,
 			char ideSexe, String ideTelephone, String ideMail, Set<TAgentbm> TAgentbms, Set<TVisiteur> TVisiteurs,
 			Set<TAdherent> TAdherents) {
-		this.ideIdentite = ideIdentite;
+		this.ideId = ideId;
 		this.TAdresse = TAdresse;
 		this.ideNom = ideNom;
 		this.idePrenom = idePrenom;
@@ -66,16 +69,18 @@ public class TIdentite implements java.io.Serializable {
 	}
 
 	@Id
-
-	@Column(name = "IDE_IDENTITE", unique = true, nullable = false, precision = 22, scale = 0)
-	public BigDecimal getIdeIdentite() {
-		return this.ideIdentite;
+	@SequenceGenerator(name="T_IDENTITE_SEQ", sequenceName = "T_IDENTITE_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="T_IDENTITE_SEQ")
+	@Column(name = "IDE_ID", unique = true, nullable = false, precision = 22, scale = 0)
+	public BigDecimal getIdeId() {
+		return this.ideId;
 	}
 
-	public void setIdeIdentite(BigDecimal ideIdentite) {
-		this.ideIdentite = ideIdentite;
+	public void setIdeId(BigDecimal ideId) {
+		this.ideId = ideId;
 	}
 
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "IDE_ADRESSE", nullable = false)
 	public TAdresse getTAdresse() {
@@ -160,7 +165,7 @@ public class TIdentite implements java.io.Serializable {
 		this.TVisiteurs = TVisiteurs;
 	}
 
-	 @JsonIgnore
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TIdentite")
 	public Set<TAdherent> getTAdherents() {
 		return this.TAdherents;

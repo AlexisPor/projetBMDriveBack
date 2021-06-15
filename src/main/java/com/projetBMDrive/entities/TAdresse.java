@@ -1,5 +1,5 @@
 package com.projetBMDrive.entities;
-// Generated 8 juin 2021 � 13:57:09 by Hibernate Tools 5.0.6.Final
+// Generated 14 juin 2021 � 17:47:08 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -7,8 +7,11 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -31,12 +34,10 @@ public class TAdresse implements java.io.Serializable {
 	public TAdresse() {
 	}
 
-	public TAdresse(BigDecimal adrId, BigDecimal adrNumRue, String adrNomRue, String adrCplAdr, BigDecimal adrCp,
-			String adrVille) {
+	public TAdresse(BigDecimal adrId, BigDecimal adrNumRue, String adrNomRue, BigDecimal adrCp, String adrVille) {
 		this.adrId = adrId;
 		this.adrNumRue = adrNumRue;
 		this.adrNomRue = adrNomRue;
-		this.adrCplAdr = adrCplAdr;
 		this.adrCp = adrCp;
 		this.adrVille = adrVille;
 	}
@@ -53,7 +54,8 @@ public class TAdresse implements java.io.Serializable {
 	}
 
 	@Id
-
+	@SequenceGenerator(name="T_ADRESSE_SEQ", sequenceName = "T_ADRESSE_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="T_ADRESSE_SEQ")
 	@Column(name = "ADR_ID", unique = true, nullable = false, precision = 22, scale = 0)
 	public BigDecimal getAdrId() {
 		return this.adrId;
@@ -81,7 +83,7 @@ public class TAdresse implements java.io.Serializable {
 		this.adrNomRue = adrNomRue;
 	}
 
-	@Column(name = "ADR_CPL_ADR", nullable = false, length = 20)
+	@Column(name = "ADR_CPL_ADR", length = 20)
 	public String getAdrCplAdr() {
 		return this.adrCplAdr;
 	}

@@ -1,5 +1,5 @@
 package com.projetBMDrive.entities;
-// Generated 8 juin 2021 � 13:57:09 by Hibernate Tools 5.0.6.Final
+// Generated 14 juin 2021 � 17:47:08 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -7,10 +7,13 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -31,10 +34,8 @@ public class TPanier implements java.io.Serializable {
 	public TPanier() {
 	}
 
-	public TPanier(BigDecimal panId, TArticle TArticle, TReservation TReservation) {
+	public TPanier(BigDecimal panId) {
 		this.panId = panId;
-		this.TArticle = TArticle;
-		this.TReservation = TReservation;
 	}
 
 	public TPanier(BigDecimal panId, TArticle TArticle, TReservation TReservation, Set<TVisiteur> TVisiteurs,
@@ -47,7 +48,8 @@ public class TPanier implements java.io.Serializable {
 	}
 
 	@Id
-
+	@SequenceGenerator(name="T_PANIER_SEQ", sequenceName = "T_PANIER_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="T_PANIER_SEQ")
 	@Column(name = "PAN_ID", unique = true, nullable = false, precision = 22, scale = 0)
 	public BigDecimal getPanId() {
 		return this.panId;
@@ -57,8 +59,9 @@ public class TPanier implements java.io.Serializable {
 		this.panId = panId;
 	}
 
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PAN_ID_OBJET", nullable = false)
+	@JoinColumn(name = "PAN_ID_ARTICLE")
 	public TArticle getTArticle() {
 		return this.TArticle;
 	}
@@ -67,8 +70,9 @@ public class TPanier implements java.io.Serializable {
 		this.TArticle = TArticle;
 	}
 
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PAN_ID_RESERVATION", nullable = false)
+	@JoinColumn(name = "PAN_ID_RESERVATION")
 	public TReservation getTReservation() {
 		return this.TReservation;
 	}
@@ -76,7 +80,7 @@ public class TPanier implements java.io.Serializable {
 	public void setTReservation(TReservation TReservation) {
 		this.TReservation = TReservation;
 	}
-	
+
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TPanier")
 	public Set<TVisiteur> getTVisiteurs() {
@@ -86,7 +90,7 @@ public class TPanier implements java.io.Serializable {
 	public void setTVisiteurs(Set<TVisiteur> TVisiteurs) {
 		this.TVisiteurs = TVisiteurs;
 	}
-	
+
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "TPanier")
 	public Set<TAdherent> getTAdherents() {

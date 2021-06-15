@@ -4,23 +4,23 @@
     <session-factory>
         <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
         <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-        <property name="hibernate.connection.password">jennifer</property>
+        <property name="hibernate.connection.password">ciara</property>
         <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
         <property name="hibernate.connection.username">BMDRIVE</property>
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
         <property name="hibernate.search.autoregister_listeners">true</property>
         <property name="hibernate.validator.apply_to_ddl">false</property>
-        <mapping class="fr.projetBMDrive.entities.TAdresse"/>
-        <mapping class="fr.projetBMDrive.entities.TPanier"/>
-        <mapping class="fr.projetBMDrive.entities.TVisiteur"/>
-        <mapping class="fr.projetBMDrive.entities.TIdentite"/>
-        <mapping class="fr.projetBMDrive.entities.TCategorie"/>
-        <mapping class="fr.projetBMDrive.entities.TReservation"/>
-        <mapping class="fr.projetBMDrive.entities.TCasier"/>
-        <mapping class="fr.projetBMDrive.entities.TLivre"/>
-        <mapping class="fr.projetBMDrive.entities.TAgentbm"/>
-        <mapping class="fr.projetBMDrive.entities.TSupportmedia"/>
-        <mapping class="fr.projetBMDrive.entities.TAdherent"/>
-        <mapping class="fr.projetBMDrive.entities.TArticle"/>
+        <mapping class="com.projetBMDrive.entities.TCasier"/>
+        <mapping class="com.projetBMDrive.entities.TArticle"/>
+        <mapping class="com.projetBMDrive.entities.TAdresse"/>
+        <mapping class="com.projetBMDrive.entities.TCategorie"/>
+        <mapping class="com.projetBMDrive.entities.TReservation"/>
+        <mapping class="com.projetBMDrive.entities.TPanier"/>
+        <mapping class="com.projetBMDrive.entities.TSupportmedia"/>
+        <mapping class="com.projetBMDrive.entities.TIdentite"/>
+        <mapping class="com.projetBMDrive.entities.TVisiteur"/>
+        <mapping class="com.projetBMDrive.entities.TAdherent"/>
+        <mapping class="com.projetBMDrive.entities.TAgentbm"/>
+        <mapping class="com.projetBMDrive.entities.TLivre"/>
     </session-factory>
 </hibernate-configuration>
