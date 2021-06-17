@@ -20,11 +20,12 @@ public class AgentBMServiceImpl implements AgentBMService {
 	private AgentBMRepository agentBMRepo;
 	
 	@Autowired
-	private IdentiteRepository ideRepo;
+	private IdentiteService ideRepo;
+
 	
 	@Override
 	public void add(BmdAgentbm abm) {
-		ideRepo.save(abm.getBmdIdentite());
+		ideRepo.addIdentite(abm.getBmdIdentite());
 		agentBMRepo.save(abm);
 	}
 
@@ -35,13 +36,13 @@ public class AgentBMServiceImpl implements AgentBMService {
 
 	@Override
 	public void update(BmdAgentbm abm) {
-		ideRepo.save(abm.getBmdIdentite());
+		ideRepo.updateIdentite(abm.getBmdIdentite());
 		agentBMRepo.save(abm);
 	}
 
 	@Override
 	public void delete(BmdAgentbm abm) {
-		ideRepo.delete(abm.getBmdIdentite());
+		ideRepo.deleteIdentite(abm.getBmdIdentite());
 		agentBMRepo.delete(abm);
 	}
 

@@ -57,7 +57,7 @@ public class BmdAgentbm implements java.io.Serializable {
 		this.abmId = abmId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ABM_ID_IDENTITE")
 	public BmdIdentite getBmdIdentite() {
 		return this.bmdIdentite;

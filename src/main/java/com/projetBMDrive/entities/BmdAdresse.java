@@ -112,7 +112,7 @@ public class BmdAdresse implements java.io.Serializable {
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdAdresse")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "bmdAdresse")
 	public Set<BmdIdentite> getBmdIdentites() {
 		return this.bmdIdentites;
 	}

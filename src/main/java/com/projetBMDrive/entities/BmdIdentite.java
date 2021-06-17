@@ -81,7 +81,7 @@ public class BmdIdentite implements java.io.Serializable {
 		this.ideId = ideId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "IDE_ADRESSE", nullable = false)
 	public BmdAdresse getBmdAdresse() {
 		return this.bmdAdresse;
@@ -166,7 +166,7 @@ public class BmdIdentite implements java.io.Serializable {
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdIdentite")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "bmdIdentite")
 	public Set<BmdAdherent> getBmdAdherents() {
 		return this.bmdAdherents;
 	}

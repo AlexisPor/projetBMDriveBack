@@ -53,7 +53,7 @@ public class BmdSupportmedia implements java.io.Serializable {
 		this.supId = supId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "SUP_ARTICLE_ID")
 	public BmdArticle getBmdArticle() {
 		return this.bmdArticle;

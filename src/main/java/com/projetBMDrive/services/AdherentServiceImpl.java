@@ -19,23 +19,25 @@ public class AdherentServiceImpl implements AdherentService {
 	private AdherentRepository adherentRepo;
 	
 	@Autowired
-	private IdentiteRepository ideRepo;
+	private IdentiteService ideRepo;
+	
+	
 	
 	@Override
 	public void addAdherent(BmdAdherent adherent) {
-		ideRepo.save(adherent.getBmdIdentite());
+		ideRepo.addIdentite(adherent.getBmdIdentite());
 		adherentRepo.save(adherent);
 	}
 
 	@Override
 	public void deleteAdherent(BmdAdherent adherent) {
-		ideRepo.delete(adherent.getBmdIdentite());
+		ideRepo.deleteIdentite(adherent.getBmdIdentite());
 		adherentRepo.delete(adherent);
 	}
 
 	@Override
 	public void updateAdherent(BmdAdherent adherent) {
-		ideRepo.save(adherent.getBmdIdentite());
+		ideRepo.updateIdentite(adherent.getBmdIdentite());
 		adherentRepo.save(adherent);
 	}
 
