@@ -3,18 +3,18 @@ package com.projetBMDrive.services;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.projetBMDrive.entities.TReservation;
+import com.projetBMDrive.entities.BmdReservation;
 
 public interface ReservationService {
 	
-	public void add(TReservation res);
+	public void add(BmdReservation res);
 
-	public List<TReservation> findAll();
+	public List<BmdReservation> findAll();
 
-	public void update(TReservation res);
+	public void update(BmdReservation res);
 
-	public void delete(TReservation res);
+	public void delete(BmdReservation res);
 
-	public TReservation findById(BigDecimal resIdReservation);
+	public BmdReservation findById(BigDecimal resIdReservation);
 
 }

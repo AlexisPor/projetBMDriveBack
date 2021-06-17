@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.projetBMDrive.entities.TAdresse;
+import com.projetBMDrive.entities.BmdAdresse;
 import com.projetBMDrive.repositories.AdresseRepository;
 
 @Service
@@ -18,27 +18,27 @@ public class AdresseServiceImpl implements AdresseService {
 	private AdresseRepository adresseRepo;
 	
 	@Override
-	public void addAdresse(TAdresse adresse) {
+	public void addAdresse(BmdAdresse adresse) {
 		adresseRepo.save(adresse);
 	}
 
 	@Override
-	public void deleteAdresse(TAdresse adresse) {
+	public void deleteAdresse(BmdAdresse adresse) {
 		adresseRepo.delete(adresse);
 	}
 
 	@Override
-	public void updateAdresse(TAdresse adresse) {
+	public void updateAdresse(BmdAdresse adresse) {
 		adresseRepo.save(adresse);
 	}
 
 	@Override
-	public List<TAdresse> findAllAdresse() {
+	public List<BmdAdresse> findAllAdresse() {
 		return adresseRepo.findAll();
 	}
 
 	@Override
-	public TAdresse findByIdAdresse(BigDecimal adrId) {
+	public BmdAdresse findByIdAdresse(BigDecimal adrId) {
 		return adresseRepo.findById(adrId).get();
 	}
 

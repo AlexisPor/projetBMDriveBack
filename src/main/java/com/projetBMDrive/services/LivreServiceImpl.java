@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.projetBMDrive.entities.TLivre;
+import com.projetBMDrive.entities.BmdLivre;
 import com.projetBMDrive.repositories.LivreRepository;
 
 @Service
@@ -18,28 +18,28 @@ public class LivreServiceImpl  implements LivreService{
 	private LivreRepository livreRepos;
 	
 	@Override
-	public void addLivre(TLivre livre) {
+	public void addLivre(BmdLivre livre) {
 		livreRepos.save(livre);
 	}
 
 	@Override
-	public List<TLivre> findAllLivre() {
+	public List<BmdLivre> findAllLivre() {
 		return livreRepos.findAll();
 	}
 
 	@Override
-	public void updateLivre(TLivre livre) {
+	public void updateLivre(BmdLivre livre) {
 		livreRepos.save(livre);
 	}
 
 	@Override
-	public void deleteLivre(TLivre livre) {
+	public void deleteLivre(BmdLivre livre) {
 		livreRepos.delete(livre);
 		
 	}
 
 	@Override
-	public TLivre findLivreById(BigDecimal id) {
+	public BmdLivre findLivreById(BigDecimal id) {
 		return livreRepos.findById(id).get();
 	}
 

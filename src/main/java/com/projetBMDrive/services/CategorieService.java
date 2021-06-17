@@ -3,18 +3,18 @@ package com.projetBMDrive.services;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.projetBMDrive.entities.TCategorie;
+import com.projetBMDrive.entities.BmdCategorie;
 
 public interface CategorieService {
 	
-	public void addCategorie(TCategorie categorie);
+	public void addCategorie(BmdCategorie categorie);
 
-    public List<TCategorie> findAllCategorie();
+    public List<BmdCategorie> findAllCategorie();
 
-    public void updateCategorie(TCategorie categorie);
+    public void updateCategorie(BmdCategorie categorie);
 
-    public void deleteCategorie(TCategorie categorie);
+    public void deleteCategorie(BmdCategorie categorie);
 
-    public TCategorie findCategorieById(BigDecimal id);
+    public BmdCategorie findCategorieById(BigDecimal id);
 
 }

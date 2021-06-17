@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projetBMDrive.entities.TCasier;
+import com.projetBMDrive.entities.BmdCasier;
 import com.projetBMDrive.services.CasierService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -31,7 +31,7 @@ public class CasierRestController {
 			 * @param cas
 			 */
 			@PostMapping("/casMap")
-			public void add(@RequestBody TCasier cas) {
+			public void add(@RequestBody BmdCasier cas) {
 
 				casierService.add(cas);
 			}
@@ -41,7 +41,7 @@ public class CasierRestController {
 			 * @return
 			 */
 			@GetMapping("/casMap")
-			public List<TCasier> findAll() {
+			public List<BmdCasier> findAll() {
 
 				return casierService.findAll();
 			}
@@ -52,7 +52,7 @@ public class CasierRestController {
 			 * @return
 			 */
 			@GetMapping("/casMap/{casId}")
-			public TCasier findById(@PathVariable BigDecimal casId) {
+			public BmdCasier findById(@PathVariable BigDecimal casId) {
 				return casierService.findById(casId);
 			}
 
@@ -62,7 +62,7 @@ public class CasierRestController {
 			 * @param cas
 			 */
 			@DeleteMapping("/casMap/{casId}")
-			public void delete(@PathVariable BigDecimal casId, TCasier cas) {
+			public void delete(@PathVariable BigDecimal casId, BmdCasier cas) {
 
 				casierService.delete(cas);
 			}
@@ -72,7 +72,7 @@ public class CasierRestController {
 			 * @param cas
 			 */
 			@PutMapping("/casMap/{casId}")
-			public void updateCasier(@RequestBody TCasier cas) {
+			public void updateCasier(@RequestBody BmdCasier cas) {
 
 				casierService.update(cas);
 			}

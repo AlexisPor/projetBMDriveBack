@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.projetBMDrive.entities.TCasier;
+import com.projetBMDrive.entities.BmdCasier;
 import com.projetBMDrive.repositories.CasierRepository;
 
 @Service
@@ -18,27 +18,27 @@ public class CasierServiceImpl implements CasierService{
 	private CasierRepository casierRepository;
 
 	@Override
-	public void add(TCasier cas) {
+	public void add(BmdCasier cas) {
 		casierRepository.save(cas);
 	}
 
 	@Override
-	public List<TCasier> findAll() {
+	public List<BmdCasier> findAll() {
 		return casierRepository.findAll();
 	}
 
 	@Override
-	public void update(TCasier cas) {
+	public void update(BmdCasier cas) {
 		casierRepository.save(cas);
 	}
 
 	@Override
-	public void delete(TCasier cas) {
+	public void delete(BmdCasier cas) {
 		casierRepository.delete(cas);
 	}
 
 	@Override
-	public TCasier findById(BigDecimal casId) {
+	public BmdCasier findById(BigDecimal casId) {
 		return casierRepository.findById(casId).get();
 	}
 

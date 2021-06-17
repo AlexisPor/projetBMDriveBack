@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projetBMDrive.entities.TAdresse;
+import com.projetBMDrive.entities.BmdAdresse;
 import com.projetBMDrive.services.AdresseService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -29,7 +29,7 @@ public class AdresseRestController {
 	 * @return
 	 */
 	@GetMapping("/adrMap")
-	public List<TAdresse> findAllAdresse() {
+	public List<BmdAdresse> findAllAdresse() {
 		return adrService.findAllAdresse();
 		
 	}
@@ -39,7 +39,7 @@ public class AdresseRestController {
 	 * @param adresse
 	 */
 	@PostMapping("/adrMap")
-	public void addAdresse(@RequestBody TAdresse adresse) {
+	public void addAdresse(@RequestBody BmdAdresse adresse) {
 		adrService.addAdresse(adresse);
 	}
 	
@@ -48,7 +48,7 @@ public class AdresseRestController {
 	 * @param adresse
 	 */
 	@PutMapping("/adrMap/{adrId}")
-	public void updateAdresse(@RequestBody TAdresse adresse) {
+	public void updateAdresse(@RequestBody BmdAdresse adresse) {
 		adrService.updateAdresse(adresse);
 	}
 	
@@ -58,7 +58,7 @@ public class AdresseRestController {
 	 */
 	@DeleteMapping("/adrMap/{adrId}")
 	public void deleteAdresse(BigDecimal adrId) {
-		TAdresse adr = adrService.findByIdAdresse(adrId);
+		BmdAdresse adr = adrService.findByIdAdresse(adrId);
 		adrService.deleteAdresse(adr);
 	}
 	
@@ -68,7 +68,7 @@ public class AdresseRestController {
 	 * @return
 	 */
 	@GetMapping("/adrMap/{adrId}")
-	public TAdresse findByIdAdresse(BigDecimal adrId) {
+	public BmdAdresse findByIdAdresse(BigDecimal adrId) {
 		return adrService.findByIdAdresse(adrId);
 	}
 }

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projetBMDrive.entities.TAgentbm;
+import com.projetBMDrive.entities.BmdAgentbm;
 import com.projetBMDrive.services.AgentBMServiceImpl;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -30,7 +30,7 @@ public class AgentBMRestController {
 	 * @param abm
 	 */
 	@PostMapping("/agMap")
-	public void add(@RequestBody TAgentbm abm) {
+	public void add(@RequestBody BmdAgentbm abm) {
 
 		agentBMService.add(abm);
 
@@ -41,7 +41,7 @@ public class AgentBMRestController {
 	 * @return
 	 */
 	@GetMapping("/agMap")
-	public List<TAgentbm> findAll() {
+	public List<BmdAgentbm> findAll() {
 
 		return agentBMService.findAll();
 	}
@@ -52,7 +52,7 @@ public class AgentBMRestController {
 	 * @return
 	 */
 	@GetMapping("/agMap/{abmId}")
-	public TAgentbm findById(@PathVariable BigDecimal abmId) {
+	public BmdAgentbm findById(@PathVariable BigDecimal abmId) {
 		return agentBMService.findById(abmId);
 	}
 
@@ -62,7 +62,7 @@ public class AgentBMRestController {
 	 * @param abm
 	 */
 	@DeleteMapping("/agMap/{abmId}")
-	public void delete(@PathVariable BigDecimal abmId, TAgentbm abm) {
+	public void delete(@PathVariable BigDecimal abmId, BmdAgentbm abm) {
 		agentBMService.delete(abm);
 	}
 
@@ -71,7 +71,7 @@ public class AgentBMRestController {
 	 * @param abm
 	 */
 	@PutMapping("/agMap/{abmId}")
-	public void updateAgentBM(@RequestBody TAgentbm abm) {
+	public void updateAgentBM(@RequestBody BmdAgentbm abm) {
 
 		agentBMService.update(abm);
 		

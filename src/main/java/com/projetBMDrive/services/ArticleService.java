@@ -3,18 +3,18 @@ package com.projetBMDrive.services;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.projetBMDrive.entities.TArticle;
+import com.projetBMDrive.entities.BmdArticle;
 
 public interface ArticleService {
 	
-	public void addArticle(TArticle article);
+	public void addArticle(BmdArticle article);
 
-    public List<TArticle> findAllArticle();
+    public List<BmdArticle> findAllArticle();
 
-    public void updateArticle(TArticle article);
+    public void updateArticle(BmdArticle article);
 
-    public void deleteArticle(TArticle article);
+    public void deleteArticle(BmdArticle article);
 
-    public TArticle findArticleById(BigDecimal id);
+    public BmdArticle findArticleById(BigDecimal id);
 
 }

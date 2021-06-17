@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.projetBMDrive.entities.TReservation;
+import com.projetBMDrive.entities.BmdReservation;
 import com.projetBMDrive.repositories.ReservationRepository;
 
 @Service
@@ -18,27 +18,27 @@ public class ReservationServiceImpl implements ReservationService {
 	private ReservationRepository reservationRepository;
 
 	@Override
-	public void add(TReservation res) {
+	public void add(BmdReservation res) {
 		reservationRepository.save(res);
 	}
 
 	@Override
-	public List<TReservation> findAll() {
+	public List<BmdReservation> findAll() {
 		return reservationRepository.findAll();
 	}
 
 	@Override
-	public void update(TReservation res) {
+	public void update(BmdReservation res) {
 		reservationRepository.save(res);
 	}
 
 	@Override
-	public void delete(TReservation res) {
+	public void delete(BmdReservation res) {
 		reservationRepository.delete(res);
 	}
 
 	@Override
-	public TReservation findById(BigDecimal resIdReservation) {
+	public BmdReservation findById(BigDecimal resIdReservation) {
 		return reservationRepository.findById(resIdReservation).get();
 	}
 

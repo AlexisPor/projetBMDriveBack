@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projetBMDrive.entities.TCategorie;
+import com.projetBMDrive.entities.BmdCategorie;
 import com.projetBMDrive.services.CategorieServiceImpl;
 
 
@@ -31,7 +31,7 @@ public class CategorieRestController {
 	 * @return
 	 */
 	@GetMapping("/catMap") 
-	public List<TCategorie> findAllCategorie()
+	public List<BmdCategorie> findAllCategorie()
 	{
 		return categorieService.findAllCategorie();
 	}
@@ -43,7 +43,7 @@ public class CategorieRestController {
 	 * @return
 	 */
 	@GetMapping("/catMap/{catId}") 
-	public TCategorie findCategorieById(@PathVariable("catId") BigDecimal catId, TCategorie cat)
+	public BmdCategorie findCategorieById(@PathVariable("catId") BigDecimal catId, BmdCategorie cat)
 	{
 		return categorieService.findCategorieById(catId);
 	}
@@ -53,7 +53,7 @@ public class CategorieRestController {
 	 * @param cat
 	 */
 	@PostMapping("/catMap")
-	public void addCategorie(@RequestBody TCategorie cat) 
+	public void addCategorie(@RequestBody BmdCategorie cat) 
 	{
 		categorieService.addCategorie(cat);
 	}
@@ -63,7 +63,7 @@ public class CategorieRestController {
 	 * @param cat
 	 */
 	@PutMapping("/catMap/{catId}")
-	public void updateCategorie(@RequestBody TCategorie cat)
+	public void updateCategorie(@RequestBody BmdCategorie cat)
 	{
 		 categorieService.updateCategorie(cat);
 	}
@@ -74,7 +74,7 @@ public class CategorieRestController {
 	 * @param cat
 	 */
 	@DeleteMapping("/catMap/{catId}")
-	public void deleteCategorie(@PathVariable("catId") BigDecimal catId, TCategorie cat) 
+	public void deleteCategorie(@PathVariable("catId") BigDecimal catId, BmdCategorie cat) 
 	{
 		categorieService.deleteCategorie(cat);
 	}

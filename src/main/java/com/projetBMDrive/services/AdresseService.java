@@ -3,17 +3,17 @@ package com.projetBMDrive.services;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.projetBMDrive.entities.TAdresse;
+import com.projetBMDrive.entities.BmdAdresse;
 
 public interface AdresseService  {
 	
-	public void addAdresse(TAdresse adresse);
+	public void addAdresse(BmdAdresse adresse);
 	
-	public void deleteAdresse(TAdresse adresse);
+	public void deleteAdresse(BmdAdresse adresse);
 	
-	public void updateAdresse(TAdresse adresse);
+	public void updateAdresse(BmdAdresse adresse);
 	
-	public List<TAdresse> findAllAdresse();
+	public List<BmdAdresse> findAllAdresse();
 	
-	TAdresse findByIdAdresse(BigDecimal adrId);
+	BmdAdresse findByIdAdresse(BigDecimal adrId);
 }

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projetBMDrive.entities.TArticle;
+import com.projetBMDrive.entities.BmdArticle;
 import com.projetBMDrive.services.ArticleServiceImpl;
 
 
@@ -32,7 +32,7 @@ public class ArticleRestController {
 	 * @return
 	 */
 	@GetMapping("/artMap") 
-	public List<TArticle> findAllArticle()
+	public List<BmdArticle> findAllArticle()
 	{
 		return articleService.findAllArticle();
 	}
@@ -44,7 +44,7 @@ public class ArticleRestController {
 	 * @return
 	 */
 	@GetMapping("/artMap/{artIdObjet}") 
-	public TArticle findArticleById(@PathVariable("artIdObjet") BigDecimal artIdObjet, TArticle article)
+	public BmdArticle findArticleById(@PathVariable("artIdObjet") BigDecimal artIdObjet, BmdArticle article)
 	{
 		return articleService.findArticleById(artIdObjet);
 	}
@@ -54,7 +54,7 @@ public class ArticleRestController {
 	 * @param article
 	 */
 	@PostMapping("/artMap")
-	public void addArticle(@RequestBody TArticle article) 
+	public void addArticle(@RequestBody BmdArticle article) 
 	{
 		articleService.addArticle(article);
 	}
@@ -64,7 +64,7 @@ public class ArticleRestController {
 	 * @param article
 	 */
 	@PutMapping("/artMap/{artIdObjet}")
-	public void updateArticle(@RequestBody TArticle article)
+	public void updateArticle(@RequestBody BmdArticle article)
 	{
 		 articleService.updateArticle(article);
 	}
@@ -75,7 +75,7 @@ public class ArticleRestController {
 	 * @param article
 	 */
 	@DeleteMapping("/artMap/{artIdObjet}")
-	public void deleteArticle(@PathVariable("artIdObjet") BigDecimal artIdObjet, TArticle article) 
+	public void deleteArticle(@PathVariable("artIdObjet") BigDecimal artIdObjet, BmdArticle article) 
 	{
 		articleService.deleteArticle(article);
 	}

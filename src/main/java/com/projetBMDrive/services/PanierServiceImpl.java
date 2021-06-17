@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.projetBMDrive.entities.TPanier;
+import com.projetBMDrive.entities.BmdPanier;
 import com.projetBMDrive.repositories.PanierRepository;
 
 @Service
@@ -18,27 +18,27 @@ public class PanierServiceImpl implements PanierService{
 	private PanierRepository panierRepository;
 
 	@Override
-	public void add(TPanier pan) {
+	public void add(BmdPanier pan) {
 		panierRepository.save(pan);
 	}
 
 	@Override
-	public List<TPanier> findAll() {
+	public List<BmdPanier> findAll() {
 		return panierRepository.findAll();
 	}
 
 	@Override
-	public void update(TPanier pan) {
+	public void update(BmdPanier pan) {
 		panierRepository.save(pan);
 	}
 
 	@Override
-	public void delete(TPanier pan) {
+	public void delete(BmdPanier pan) {
 		panierRepository.delete(pan);
 	}
 
 	@Override
-	public TPanier findById(BigDecimal panId) {
+	public BmdPanier findById(BigDecimal panId) {
 		return panierRepository.findById(panId).get();
 	}
 

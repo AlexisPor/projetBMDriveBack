@@ -5,9 +5,9 @@ import java.math.BigDecimal;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.projetBMDrive.entities.TAgentbm;
+import com.projetBMDrive.entities.BmdAgentbm;
 
 @Repository
-public interface AgentBMRepository extends JpaRepository<TAgentbm, BigDecimal> {
+public interface AgentBMRepository extends JpaRepository<BmdAgentbm, BigDecimal> {
 
 }

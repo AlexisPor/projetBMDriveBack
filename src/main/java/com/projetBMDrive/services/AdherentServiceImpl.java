@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.projetBMDrive.entities.TAdherent;
+import com.projetBMDrive.entities.BmdAdherent;
 import com.projetBMDrive.repositories.AdherentRepository;
 
 @Service
@@ -18,27 +18,27 @@ public class AdherentServiceImpl implements AdherentService {
 	private AdherentRepository adherentRepo;
 	
 	@Override
-	public void addAdherent(TAdherent adherent) {
+	public void addAdherent(BmdAdherent adherent) {
 		adherentRepo.save(adherent);
 	}
 
 	@Override
-	public void deleteAdherent(TAdherent adherent) {
+	public void deleteAdherent(BmdAdherent adherent) {
 		adherentRepo.delete(adherent);
 	}
 
 	@Override
-	public void updateAdherent(TAdherent adherent) {
+	public void updateAdherent(BmdAdherent adherent) {
 		adherentRepo.save(adherent);
 	}
 
 	@Override
-	public List<TAdherent> findAllAdherent() {
+	public List<BmdAdherent> findAllAdherent() {
 		return adherentRepo.findAll();
 	}
 
 	@Override
-	public TAdherent findByIdAdherent(BigDecimal adhIdLecteur) {
+	public BmdAdherent findByIdAdherent(BigDecimal adhIdLecteur) {
 		return adherentRepo.findById(adhIdLecteur).get();
 	}
 	

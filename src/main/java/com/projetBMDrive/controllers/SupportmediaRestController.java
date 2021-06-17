@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projetBMDrive.entities.TSupportmedia;
+import com.projetBMDrive.entities.BmdSupportmedia;
 import com.projetBMDrive.services.SupportmediaServiceImpl;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -30,7 +30,7 @@ public class SupportmediaRestController {
 	 * @return
 	 */
 	@GetMapping("/smMap") 
-	public List<TSupportmedia> findAllSuppermedia()
+	public List<BmdSupportmedia> findAllSuppermedia()
 	{
 		return supmedService.findAllSupportmedia();
 	}
@@ -42,7 +42,7 @@ public class SupportmediaRestController {
 	 * @return
 	 */
 	@GetMapping("/smMap/{supId}") 
-	public TSupportmedia findSuppermediaById(@PathVariable("supId") BigDecimal supId, TSupportmedia supmedia)
+	public BmdSupportmedia findSuppermediaById(@PathVariable("supId") BigDecimal supId, BmdSupportmedia supmedia)
 	{
 		return supmedService.findSupportmediaById(supId);
 	}
@@ -52,8 +52,9 @@ public class SupportmediaRestController {
 	 * @param supmedia
 	 */
 	@PostMapping("/smMap")
-	public void addSuppermedia(@RequestBody TSupportmedia supmedia) 
+	public void addSuppermedia(@RequestBody BmdSupportmedia supmedia) 
 	{
+		System.err.println("supmedia="+supmedia);
 		supmedService.addSupportmedia(supmedia);
 	}
 	
@@ -62,7 +63,7 @@ public class SupportmediaRestController {
 	 * @param supmedia
 	 */
 	@PutMapping("/smMap/{supId}")
-	public void updateSuppermedia(@RequestBody TSupportmedia supmedia)
+	public void updateSuppermedia(@RequestBody BmdSupportmedia supmedia)
 	{
 		 supmedService.updateSupportmedia(supmedia);
 	}
@@ -73,7 +74,7 @@ public class SupportmediaRestController {
 	 * @param supmedia
 	 */
 	@DeleteMapping("/smMap/{supId}")
-	public void deleteSuppermedia(@PathVariable("supId") BigDecimal supId, TSupportmedia supmedia) 
+	public void deleteSuppermedia(@PathVariable("supId") BigDecimal supId, BmdSupportmedia supmedia) 
 	{
 		supmedService.deleteSupportmedia(supmedia);
 	}

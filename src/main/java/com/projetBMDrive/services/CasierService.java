@@ -3,19 +3,19 @@ package com.projetBMDrive.services;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.projetBMDrive.entities.TCasier;
+import com.projetBMDrive.entities.BmdCasier;
 
 
 public interface CasierService {
 	
-	public void add(TCasier cas);
+	public void add(BmdCasier cas);
 
-	public List<TCasier> findAll();
+	public List<BmdCasier> findAll();
 
-	public void update(TCasier cas);
+	public void update(BmdCasier cas);
 
-	public void delete(TCasier cas);
+	public void delete(BmdCasier cas);
 
-	public TCasier findById(BigDecimal casId);
+	public BmdCasier findById(BigDecimal casId);
 
 }

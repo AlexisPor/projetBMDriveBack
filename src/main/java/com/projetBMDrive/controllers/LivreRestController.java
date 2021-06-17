@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projetBMDrive.entities.TLivre;
+import com.projetBMDrive.entities.BmdLivre;
 import com.projetBMDrive.services.LivreServiceImpl;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -30,7 +30,7 @@ public class LivreRestController {
 	 * @return
 	 */
 	@GetMapping("/livMap") 
-	public List<TLivre> findAllLivre()
+	public List<BmdLivre> findAllLivre()
 	{
 		return livreService.findAllLivre();
 	}
@@ -42,7 +42,7 @@ public class LivreRestController {
 	 * @return
 	 */
 	@GetMapping("/livMap/{livId}") 
-	public TLivre findLivreById(@PathVariable("livId") BigDecimal livId, TLivre livre)
+	public BmdLivre findLivreById(@PathVariable("livId") BigDecimal livId, BmdLivre livre)
 	{
 		return livreService.findLivreById(livId);
 	}
@@ -52,7 +52,7 @@ public class LivreRestController {
 	 * @param livre
 	 */
 	@PostMapping("/livMap")
-	public void addLivre(@RequestBody TLivre livre) 
+	public void addLivre(@RequestBody BmdLivre livre) 
 	{
 		livreService.addLivre(livre);
 	}
@@ -62,7 +62,7 @@ public class LivreRestController {
 	 * @param livre
 	 */
 	@PutMapping("/livMap/{livId}")
-	public void updateLivre(@RequestBody TLivre livre)
+	public void updateLivre(@RequestBody BmdLivre livre)
 	{
 		 livreService.updateLivre(livre);
 	}
@@ -73,7 +73,7 @@ public class LivreRestController {
 	 * @param livre
 	 */
 	@DeleteMapping("/livMap/{livId}")
-	public void deleteLivre(@PathVariable("livId") BigDecimal livId, TLivre livre) 
+	public void deleteLivre(@PathVariable("livId") BigDecimal livId, BmdLivre livre) 
 	{
 		livreService.deleteLivre(livre);
 	}

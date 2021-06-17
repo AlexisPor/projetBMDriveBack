@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projetBMDrive.entities.TReservation;
+import com.projetBMDrive.entities.BmdReservation;
 import com.projetBMDrive.services.ReservationService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -30,7 +30,7 @@ public class ReservationRestController {
 	 * @param res
 	 */
 	@PostMapping("/resMap")
-	public void add(@RequestBody TReservation res) {
+	public void add(@RequestBody BmdReservation res) {
 
 		reservationService.add(res);
 	}
@@ -40,7 +40,7 @@ public class ReservationRestController {
 	 * @return
 	 */
 	@GetMapping("/resMap")
-	public List<TReservation> findAll() {
+	public List<BmdReservation> findAll() {
 
 		return reservationService.findAll();
 	}
@@ -51,7 +51,7 @@ public class ReservationRestController {
 	 * @return
 	 */
 	@GetMapping("/resMap/{resIdReservation}")
-	public TReservation findById(@PathVariable BigDecimal resIdReservation) {
+	public BmdReservation findById(@PathVariable BigDecimal resIdReservation) {
 		return reservationService.findById(resIdReservation);
 	}
 
@@ -61,7 +61,7 @@ public class ReservationRestController {
 	 * @param res
 	 */
 	@DeleteMapping("/resMap/{resIdReservation}")
-	public void delete(@PathVariable BigDecimal resIdReservation, TReservation res) {
+	public void delete(@PathVariable BigDecimal resIdReservation, BmdReservation res) {
 
 		reservationService.delete(res);
 	}
@@ -71,7 +71,7 @@ public class ReservationRestController {
 	 * @param res
 	 */
 	@PutMapping("/resMap/{resIdReservation}")
-	public void updateReservation(@RequestBody TReservation res) {
+	public void updateReservation(@RequestBody BmdReservation res) {
 
 		reservationService.update(res);
 		

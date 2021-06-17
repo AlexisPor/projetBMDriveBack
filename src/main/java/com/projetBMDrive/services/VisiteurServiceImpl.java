@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.projetBMDrive.entities.TVisiteur;
+import com.projetBMDrive.entities.BmdVisiteur;
 import com.projetBMDrive.repositories.VisiteurRepository;
 
 @Service
@@ -18,27 +18,27 @@ public class VisiteurServiceImpl implements VisiteurService {
 	private VisiteurRepository visiteurRepo;
 	
 	@Override
-	public void addVisiteur(TVisiteur visiteur) {
+	public void addVisiteur(BmdVisiteur visiteur) {
 		visiteurRepo.save(visiteur);
 	}
 
 	@Override
-	public void deleteVisiteur(TVisiteur visiteur) {
+	public void deleteVisiteur(BmdVisiteur visiteur) {
 		visiteurRepo.delete(visiteur);
 	}
 
 	@Override
-	public void updateVisiteur(TVisiteur visiteur) {
+	public void updateVisiteur(BmdVisiteur visiteur) {
 		visiteurRepo.save(visiteur);
 	}
 
 	@Override
-	public List<TVisiteur> findAllVisiteur() {
+	public List<BmdVisiteur> findAllVisiteur() {
 		return visiteurRepo.findAll();
 	}
 
 	@Override
-	public TVisiteur findByIdVisiteur(BigDecimal visIdVisiteur) {
+	public BmdVisiteur findByIdVisiteur(BigDecimal visIdVisiteur) {
 		return visiteurRepo.findById(visIdVisiteur).get();
 	}
 

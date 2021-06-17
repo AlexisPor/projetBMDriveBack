@@ -3,18 +3,18 @@ package com.projetBMDrive.services;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.projetBMDrive.entities.TLivre;
+import com.projetBMDrive.entities.BmdLivre;
 
 public interface LivreService {
 	
-	public void addLivre(TLivre livre);
+	public void addLivre(BmdLivre livre);
 
-    public List<TLivre> findAllLivre();
+    public List<BmdLivre> findAllLivre();
 
-    public void updateLivre(TLivre livre);
+    public void updateLivre(BmdLivre livre);
 
-    public void deleteLivre(TLivre livre);
+    public void deleteLivre(BmdLivre livre);
 
-    public TLivre findLivreById(BigDecimal id);
+    public BmdLivre findLivreById(BigDecimal id);
 
 }

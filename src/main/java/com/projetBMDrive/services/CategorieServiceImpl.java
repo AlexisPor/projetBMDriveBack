@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.projetBMDrive.entities.TCategorie;
+import com.projetBMDrive.entities.BmdCategorie;
 import com.projetBMDrive.repositories.CategorieRepository;
 
 @Service
@@ -18,28 +18,28 @@ public class CategorieServiceImpl  implements CategorieService{
 	private CategorieRepository categorieRepos;
 
 	@Override
-	public void addCategorie(TCategorie categorie) {
+	public void addCategorie(BmdCategorie categorie) {
 		categorieRepos.save(categorie);
 	}
 
 	@Override
-	public List<TCategorie> findAllCategorie() {
+	public List<BmdCategorie> findAllCategorie() {
 		return categorieRepos.findAll();
 	}
 
 	@Override
-	public void updateCategorie(TCategorie categorie) {
+	public void updateCategorie(BmdCategorie categorie) {
 		categorieRepos.save(categorie);
 	}
 
 	@Override
-	public void deleteCategorie(TCategorie categorie) {
+	public void deleteCategorie(BmdCategorie categorie) {
 		categorieRepos.delete(categorie);
 		
 	}
 
 	@Override
-	public TCategorie findCategorieById(BigDecimal id) {
+	public BmdCategorie findCategorieById(BigDecimal id) {
 		return categorieRepos.getOne(id);
 	}
 	

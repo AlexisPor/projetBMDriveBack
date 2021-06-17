@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projetBMDrive.entities.TAdherent;
+import com.projetBMDrive.entities.BmdAdherent;
 import com.projetBMDrive.services.AdherentService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -29,7 +29,7 @@ public class AdherentRestController {
 	 * @return
 	 */
 	@GetMapping("/adhMap")
-	public List<TAdherent> findAllAdherent() {
+	public List<BmdAdherent> findAllAdherent() {
 		return adhService.findAllAdherent();
 	}
 	
@@ -38,7 +38,7 @@ public class AdherentRestController {
 	 * @param adherent
 	 */
 	@PostMapping("/adhMap")
-	public void addAdherent(@RequestBody TAdherent adherent) {
+	public void addAdherent(@RequestBody BmdAdherent adherent) {
 		adhService.addAdherent(adherent);
 	}
 	
@@ -47,7 +47,7 @@ public class AdherentRestController {
 	 * @param adherent
 	 */
 	@PutMapping("/adhMap/{adhIdLecteur}")
-	public void updateAdherent(@RequestBody TAdherent adherent) {
+	public void updateAdherent(@RequestBody BmdAdherent adherent) {
 		adhService.updateAdherent(adherent);
 	}
 	
@@ -57,7 +57,7 @@ public class AdherentRestController {
 	 */
 	@DeleteMapping("/adhMap/{adhIdLecteur}")
 	public void deleteAdherent(BigDecimal adhIdLecteur) {
-		TAdherent adh = adhService.findByIdAdherent(adhIdLecteur);
+		BmdAdherent adh = adhService.findByIdAdherent(adhIdLecteur);
 		adhService.deleteAdherent(adh);
 	}
 	
@@ -67,7 +67,7 @@ public class AdherentRestController {
 	 * @return
 	 */
 	@GetMapping("/adhMap/{adhIdLecteur}")
-	public TAdherent findByIdAdherent(BigDecimal adhIdLecteur) {
+	public BmdAdherent findByIdAdherent(BigDecimal adhIdLecteur) {
 		return adhService.findByIdAdherent(adhIdLecteur);
 	}
 }

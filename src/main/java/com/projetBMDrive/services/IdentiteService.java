@@ -3,17 +3,17 @@ package com.projetBMDrive.services;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.projetBMDrive.entities.TIdentite;
+import com.projetBMDrive.entities.BmdIdentite;
 
 public interface IdentiteService {
 
-	public void addIdentite(TIdentite identite);
+	public void addIdentite(BmdIdentite identite);
 	
-	public void deleteIdentite(TIdentite identite);
+	public void deleteIdentite(BmdIdentite identite);
 	
-	public void updateIdentite(TIdentite identite);
+	public void updateIdentite(BmdIdentite identite);
 	
-	public List<TIdentite> findAllIdentite();
+	public List<BmdIdentite> findAllIdentite();
 	
-	TIdentite findByIdIdentite(BigDecimal idIdentite);
+	BmdIdentite findByIdIdentite(BigDecimal idIdentite);
 }

@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.projetBMDrive.entities.TAdherent;
+import com.projetBMDrive.entities.BmdAdherent;
 
-public interface AdherentRepository extends JpaRepository<TAdherent, BigDecimal> {
+public interface AdherentRepository extends JpaRepository<BmdAdherent, BigDecimal> {
 
 }

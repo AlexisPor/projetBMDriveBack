@@ -5,9 +5,9 @@ import java.math.BigDecimal;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.projetBMDrive.entities.TReservation;
+import com.projetBMDrive.entities.BmdReservation;
 
 @Repository
-public interface ReservationRepository extends JpaRepository<TReservation, BigDecimal> {
+public interface ReservationRepository extends JpaRepository<BmdReservation, BigDecimal> {
 
 }

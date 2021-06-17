@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.projetBMDrive.entities.TIdentite;
+import com.projetBMDrive.entities.BmdIdentite;
 import com.projetBMDrive.repositories.IdentiteRepository;
 
 @Service
@@ -18,27 +18,27 @@ public class IdentiteServiceImpl implements IdentiteService{
 	private IdentiteRepository identiteRepo;
 	
 	@Override
-	public void addIdentite(TIdentite identite) {
+	public void addIdentite(BmdIdentite identite) {
 		identiteRepo.save(identite);
 	}
 
 	@Override
-	public void deleteIdentite(TIdentite identite) {
+	public void deleteIdentite(BmdIdentite identite) {
 		identiteRepo.delete(identite);
 	}
 
 	@Override
-	public void updateIdentite(TIdentite identite) {
+	public void updateIdentite(BmdIdentite identite) {
 		identiteRepo.save(identite);
 	}
 
 	@Override
-	public List<TIdentite> findAllIdentite() {
+	public List<BmdIdentite> findAllIdentite() {
 		return identiteRepo.findAll();
 	}
 
 	@Override
-	public TIdentite findByIdIdentite(BigDecimal idIdentite) {
+	public BmdIdentite findByIdIdentite(BigDecimal idIdentite) {
 		return identiteRepo.findById(idIdentite).get();
 	}
 

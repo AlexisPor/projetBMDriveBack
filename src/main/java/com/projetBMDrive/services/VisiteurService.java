@@ -5,17 +5,17 @@ package com.projetBMDrive.services;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.projetBMDrive.entities.TVisiteur;
+import com.projetBMDrive.entities.BmdVisiteur;
 
 public interface VisiteurService {
 	
-	public void addVisiteur(TVisiteur visiteur);
+	public void addVisiteur(BmdVisiteur visiteur);
 	
-	public void deleteVisiteur(TVisiteur visiteur);
+	public void deleteVisiteur(BmdVisiteur visiteur);
 	
-	public void updateVisiteur(TVisiteur visiteur);
+	public void updateVisiteur(BmdVisiteur visiteur);
 	
-	public List<TVisiteur> findAllVisiteur();
+	public List<BmdVisiteur> findAllVisiteur();
 	
-	TVisiteur findByIdVisiteur(BigDecimal visIdVisiteur);
+	BmdVisiteur findByIdVisiteur(BigDecimal visIdVisiteur);
 }

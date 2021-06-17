@@ -3,17 +3,17 @@ package com.projetBMDrive.services;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.projetBMDrive.entities.TAdherent;
+import com.projetBMDrive.entities.BmdAdherent;
 
 public interface AdherentService  {
 	
-	public void addAdherent(TAdherent adherent);
+	public void addAdherent(BmdAdherent adherent);
 	
-	public void deleteAdherent(TAdherent adherent);
+	public void deleteAdherent(BmdAdherent adherent);
 	
-	public void updateAdherent(TAdherent adherent);
+	public void updateAdherent(BmdAdherent adherent);
 	
-	public List<TAdherent> findAllAdherent();
+	public List<BmdAdherent> findAllAdherent();
 	
-	TAdherent findByIdAdherent(BigDecimal adhIdLecteur);
+	BmdAdherent findByIdAdherent(BigDecimal adhIdLecteur);
 }

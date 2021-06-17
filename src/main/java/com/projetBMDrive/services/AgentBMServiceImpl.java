@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.projetBMDrive.entities.TAgentbm;
+import com.projetBMDrive.entities.BmdAgentbm;
 import com.projetBMDrive.repositories.AgentBMRepository;
 
 
@@ -19,27 +19,27 @@ public class AgentBMServiceImpl implements AgentBMService {
 	private AgentBMRepository agentBMRepo;
 	
 	@Override
-	public void add(TAgentbm abm) {
+	public void add(BmdAgentbm abm) {
 		agentBMRepo.save(abm);
 	}
 
 	@Override
-	public List<TAgentbm> findAll() {
+	public List<BmdAgentbm> findAll() {
 		return agentBMRepo.findAll();
 	}
 
 	@Override
-	public void update(TAgentbm abm) {
+	public void update(BmdAgentbm abm) {
 		agentBMRepo.save(abm);
 	}
 
 	@Override
-	public void delete(TAgentbm abm) {
+	public void delete(BmdAgentbm abm) {
 		agentBMRepo.delete(abm);
 	}
 
 	@Override
-	public TAgentbm findById(BigDecimal abmId) {
+	public BmdAgentbm findById(BigDecimal abmId) {
 		return agentBMRepo.findById(abmId).get();
 	}
 

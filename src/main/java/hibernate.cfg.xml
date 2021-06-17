@@ -10,17 +10,17 @@
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
         <property name="hibernate.search.autoregister_listeners">true</property>
         <property name="hibernate.validator.apply_to_ddl">false</property>
-        <mapping class="com.projetBMDrive.entities.TCasier"/>
-        <mapping class="com.projetBMDrive.entities.TArticle"/>
-        <mapping class="com.projetBMDrive.entities.TAdresse"/>
-        <mapping class="com.projetBMDrive.entities.TCategorie"/>
-        <mapping class="com.projetBMDrive.entities.TReservation"/>
-        <mapping class="com.projetBMDrive.entities.TPanier"/>
-        <mapping class="com.projetBMDrive.entities.TSupportmedia"/>
-        <mapping class="com.projetBMDrive.entities.TIdentite"/>
-        <mapping class="com.projetBMDrive.entities.TVisiteur"/>
-        <mapping class="com.projetBMDrive.entities.TAdherent"/>
-        <mapping class="com.projetBMDrive.entities.TAgentbm"/>
-        <mapping class="com.projetBMDrive.entities.TLivre"/>
+        <mapping class="com.projetBMDrive.entities.BmdIdentite"/>
+        <mapping class="com.projetBMDrive.entities.BmdVisiteur"/>
+        <mapping class="com.projetBMDrive.entities.BmdAgentbm"/>
+        <mapping class="com.projetBMDrive.entities.BmdLivre"/>
+        <mapping class="com.projetBMDrive.entities.BmdArticle"/>
+        <mapping class="com.projetBMDrive.entities.BmdPanier"/>
+        <mapping class="com.projetBMDrive.entities.BmdAdresse"/>
+        <mapping class="com.projetBMDrive.entities.BmdCasier"/>
+        <mapping class="com.projetBMDrive.entities.BmdCategorie"/>
+        <mapping class="com.projetBMDrive.entities.BmdAdherent"/>
+        <mapping class="com.projetBMDrive.entities.BmdReservation"/>
+        <mapping class="com.projetBMDrive.entities.BmdSupportmedia"/>
     </session-factory>
 </hibernate-configuration>

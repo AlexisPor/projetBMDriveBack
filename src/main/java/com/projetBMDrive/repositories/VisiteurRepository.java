@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.projetBMDrive.entities.TVisiteur;
+import com.projetBMDrive.entities.BmdVisiteur;
 
-public interface VisiteurRepository extends JpaRepository<TVisiteur, BigDecimal>{
+public interface VisiteurRepository extends JpaRepository<BmdVisiteur, BigDecimal>{
 
 }

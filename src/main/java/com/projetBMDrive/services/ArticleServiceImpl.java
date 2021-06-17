@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.projetBMDrive.entities.TArticle;
+import com.projetBMDrive.entities.BmdArticle;
 import com.projetBMDrive.repositories.ArticleRepository;
 
 @Service
@@ -18,27 +18,27 @@ public class ArticleServiceImpl  implements ArticleService{
 	private ArticleRepository articleRepos;
 
 	@Override
-	public void addArticle(TArticle article) {
+	public void addArticle(BmdArticle article) {
 		articleRepos.save(article);
 	}
 
 	@Override
-	public List<TArticle> findAllArticle() {
+	public List<BmdArticle> findAllArticle() {
 		return articleRepos.findAll();
 	}
 
 	@Override
-	public void updateArticle(TArticle article) {
+	public void updateArticle(BmdArticle article) {
 		articleRepos.save(article);
 	}
 
 	@Override
-	public void deleteArticle(TArticle article) {
+	public void deleteArticle(BmdArticle article) {
 		articleRepos.delete(article);
 	}
 
 	@Override
-	public TArticle findArticleById(BigDecimal id) {
+	public BmdArticle findArticleById(BigDecimal id) {
 		return articleRepos.getOne(id);
 	}
 

@@ -3,18 +3,18 @@ package com.projetBMDrive.services;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.projetBMDrive.entities.TSupportmedia;
+import com.projetBMDrive.entities.BmdSupportmedia;
 
 public interface SupportmediaService {
 	
-	public void addSupportmedia(TSupportmedia supmed);
+	public void addSupportmedia(BmdSupportmedia supmed);
 
-    public List<TSupportmedia> findAllSupportmedia();
+    public List<BmdSupportmedia> findAllSupportmedia();
 
-    public void updateSupportmedia(TSupportmedia supmed);
+    public void updateSupportmedia(BmdSupportmedia supmed);
 
-    public void deleteSupportmedia(TSupportmedia supmed);
+    public void deleteSupportmedia(BmdSupportmedia supmed);
 
-    public TSupportmedia findSupportmediaById(BigDecimal id);
+    public BmdSupportmedia findSupportmediaById(BigDecimal id);
 
 }

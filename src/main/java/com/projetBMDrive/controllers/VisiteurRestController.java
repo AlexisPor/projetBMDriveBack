@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projetBMDrive.entities.TVisiteur;
+import com.projetBMDrive.entities.BmdVisiteur;
 import com.projetBMDrive.services.VisiteurService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -29,7 +29,7 @@ public class VisiteurRestController {
 	 * @return
 	 */
 	@GetMapping("/visMap")
-	public List<TVisiteur> findAllVisiteur(){
+	public List<BmdVisiteur> findAllVisiteur(){
 		return visService.findAllVisiteur();
 	}
 	
@@ -38,7 +38,7 @@ public class VisiteurRestController {
 	 * @param visiteur
 	 */
 	@PostMapping("/visMap")
-	public void addVisiteur(@RequestBody TVisiteur visiteur) {
+	public void addVisiteur(@RequestBody BmdVisiteur visiteur) {
 		visService.addVisiteur(visiteur);
 		
 	}
@@ -48,7 +48,7 @@ public class VisiteurRestController {
 	 * @param visiteur
 	 */
 	@PutMapping("/visMap/{visIdVisiteur}")
-	public void updateVisiteur(@RequestBody TVisiteur visiteur) {
+	public void updateVisiteur(@RequestBody BmdVisiteur visiteur) {
 		visService.updateVisiteur(visiteur);
 	}
 	
@@ -58,7 +58,7 @@ public class VisiteurRestController {
 	 */
 	@DeleteMapping("/visMap/{visIdVisiteur}")
 	public void deleteVisiteur(BigDecimal visIdVisiteur) {
-		TVisiteur visiteur = visService.findByIdVisiteur(visIdVisiteur);
+		BmdVisiteur visiteur = visService.findByIdVisiteur(visIdVisiteur);
 		visService.deleteVisiteur(visiteur);
 	}
 	
@@ -68,7 +68,7 @@ public class VisiteurRestController {
 	 * @return
 	 */
 	 @GetMapping("/visMap/{visIdVisiteur}")
-		public TVisiteur findByIdVisiteur(BigDecimal visIdVisiteur) {
+		public BmdVisiteur findByIdVisiteur(BigDecimal visIdVisiteur) {
 			
 			return visService.findByIdVisiteur(visIdVisiteur);
 		}

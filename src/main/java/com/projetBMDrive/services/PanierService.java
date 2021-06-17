@@ -3,18 +3,18 @@ package com.projetBMDrive.services;
 import java.math.BigDecimal;
 import java.util.List;
 
-import com.projetBMDrive.entities.TPanier;
+import com.projetBMDrive.entities.BmdPanier;
 
 public interface PanierService {
 	
-	public void add(TPanier pan);
+	public void add(BmdPanier pan);
 
-	public List<TPanier> findAll();
+	public List<BmdPanier> findAll();
 
-	public void update(TPanier pan);
+	public void update(BmdPanier pan);
 
-	public void delete(TPanier pan);
+	public void delete(BmdPanier pan);
 
-	public TPanier findById(BigDecimal panId);
+	public BmdPanier findById(BigDecimal panId);
 
 }
