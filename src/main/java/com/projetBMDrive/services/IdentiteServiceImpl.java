@@ -29,6 +29,7 @@ public class IdentiteServiceImpl implements IdentiteService{
 
 	@Override
 	public void deleteIdentite(BmdIdentite identite) {
+		adrRepo.delete(identite.getBmdAdresse());
 		identiteRepo.delete(identite);
 	}
 

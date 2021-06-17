@@ -40,6 +40,7 @@ public class LivreServiceImpl  implements LivreService{
 
 	@Override
 	public void deleteLivre(BmdLivre livre) {
+		artRepo.delete(livre.getBmdArticle());
 		livreRepos.delete(livre);
 		
 	}

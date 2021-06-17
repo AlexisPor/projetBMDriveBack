@@ -41,6 +41,7 @@ public class AgentBMServiceImpl implements AgentBMService {
 
 	@Override
 	public void delete(BmdAgentbm abm) {
+		ideRepo.delete(abm.getBmdIdentite());
 		agentBMRepo.delete(abm);
 	}
 

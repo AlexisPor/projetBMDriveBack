@@ -39,6 +39,7 @@ public class SupportmediaServiceImpl  implements SupportmediaService{
 
 	@Override
 	public void deleteSupportmedia(BmdSupportmedia supmed) {
+		articleRepos.delete(supmed.getBmdArticle());
 		supmedRepos.delete(supmed);
 	}
 

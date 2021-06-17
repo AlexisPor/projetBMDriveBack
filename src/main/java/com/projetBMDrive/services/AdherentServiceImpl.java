@@ -29,6 +29,7 @@ public class AdherentServiceImpl implements AdherentService {
 
 	@Override
 	public void deleteAdherent(BmdAdherent adherent) {
+		ideRepo.delete(adherent.getBmdIdentite());
 		adherentRepo.delete(adherent);
 	}
 
