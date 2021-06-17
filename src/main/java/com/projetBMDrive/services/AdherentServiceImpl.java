@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.projetBMDrive.entities.BmdAdherent;
 import com.projetBMDrive.repositories.AdherentRepository;
+import com.projetBMDrive.repositories.IdentiteRepository;
 
 @Service
 @Transactional
@@ -17,8 +18,12 @@ public class AdherentServiceImpl implements AdherentService {
 	@Autowired
 	private AdherentRepository adherentRepo;
 	
+	@Autowired
+	private IdentiteRepository ideRepo;
+	
 	@Override
 	public void addAdherent(BmdAdherent adherent) {
+		ideRepo.save(adherent.getBmdIdentite());
 		adherentRepo.save(adherent);
 	}
 
@@ -29,6 +34,7 @@ public class AdherentServiceImpl implements AdherentService {
 
 	@Override
 	public void updateAdherent(BmdAdherent adherent) {
+		ideRepo.save(adherent.getBmdIdentite());
 		adherentRepo.save(adherent);
 	}
 

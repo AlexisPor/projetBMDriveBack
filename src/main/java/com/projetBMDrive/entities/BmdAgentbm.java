@@ -2,12 +2,16 @@ package com.projetBMDrive.entities;
 // Generated 17 juin 2021 � 10:20:52 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -42,7 +46,8 @@ public class BmdAgentbm implements java.io.Serializable {
 	}
 
 	@Id
-
+	@SequenceGenerator(name="BMD_AGENTBM_SEQ", sequenceName = "BMD_AGENTBM_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="BMD_AGENTBM_SEQ")
 	@Column(name = "ABM_ID", unique = true, nullable = false, precision = 22, scale = 0)
 	public BigDecimal getAbmId() {
 		return this.abmId;

@@ -33,6 +33,7 @@ public class SupportmediaServiceImpl  implements SupportmediaService{
 
 	@Override
 	public void updateSupportmedia(BmdSupportmedia supmed) {
+		articleRepos.save(supmed.getBmdArticle());
 		supmedRepos.save(supmed);
 	}
 

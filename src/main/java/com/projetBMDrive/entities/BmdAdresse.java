@@ -4,11 +4,15 @@ package com.projetBMDrive.entities;
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -49,7 +53,8 @@ public class BmdAdresse implements java.io.Serializable {
 	}
 
 	@Id
-
+	@SequenceGenerator(name="BMD_ADRESSE_SEQ", sequenceName = "BMD_ADRESSE_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="BMD_ADRESSE_SEQ")
 	@Column(name = "ADR_ID", unique = true, nullable = false, precision = 22, scale = 0)
 	public BigDecimal getAdrId() {
 		return this.adrId;

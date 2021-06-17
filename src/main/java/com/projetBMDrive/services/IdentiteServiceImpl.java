@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.projetBMDrive.entities.BmdIdentite;
+import com.projetBMDrive.repositories.AdresseRepository;
 import com.projetBMDrive.repositories.IdentiteRepository;
 
 @Service
@@ -17,8 +18,12 @@ public class IdentiteServiceImpl implements IdentiteService{
 	@Autowired
 	private IdentiteRepository identiteRepo;
 	
+	@Autowired
+	private AdresseRepository adrRepo;
+	
 	@Override
 	public void addIdentite(BmdIdentite identite) {
+		adrRepo.save(identite.getBmdAdresse());
 		identiteRepo.save(identite);
 	}
 
@@ -29,6 +34,7 @@ public class IdentiteServiceImpl implements IdentiteService{
 
 	@Override
 	public void updateIdentite(BmdIdentite identite) {
+		adrRepo.save(identite.getBmdAdresse());
 		identiteRepo.save(identite);
 	}
 

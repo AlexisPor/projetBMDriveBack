@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.projetBMDrive.entities.BmdLivre;
+import com.projetBMDrive.repositories.ArticleRepository;
 import com.projetBMDrive.repositories.LivreRepository;
 
 @Service
@@ -17,8 +18,12 @@ public class LivreServiceImpl  implements LivreService{
 	@Autowired
 	private LivreRepository livreRepos;
 	
+	@Autowired
+	private ArticleRepository artRepo;
+	
 	@Override
 	public void addLivre(BmdLivre livre) {
+		artRepo.save(livre.getBmdArticle());
 		livreRepos.save(livre);
 	}
 
@@ -29,6 +34,7 @@ public class LivreServiceImpl  implements LivreService{
 
 	@Override
 	public void updateLivre(BmdLivre livre) {
+		artRepo.save(livre.getBmdArticle());
 		livreRepos.save(livre);
 	}
 
