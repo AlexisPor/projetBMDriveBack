@@ -46,7 +46,7 @@ public class AdherentRestController {
 	 * Modifier les infos de l'adherent.
 	 * @param adherent
 	 */
-	@PutMapping("/adhMap/{adhIdLecteur}")
+	@PutMapping("/adhMap")
 	public void updateAdherent(@RequestBody BmdAdherent adherent) {
 		adhService.updateAdherent(adherent);
 	}

@@ -71,7 +71,7 @@ public class CasierRestController {
 			 * Modifier les infos d'un casier.
 			 * @param cas
 			 */
-			@PutMapping("/casMap/{casId}")
+			@PutMapping("/casMap")
 			public void updateCasier(@RequestBody BmdCasier cas) {
 
 				casierService.update(cas);

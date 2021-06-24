@@ -17,10 +17,9 @@ public class SupportmediaServiceImpl  implements SupportmediaService{
 
 	@Autowired
 	private SupportmediaRepository supmedRepos;
+	
 	@Autowired
 	private ArticleRepository articleRepos;
-	
-	
 
 	@Override
 	public void addSupportmedia(BmdSupportmedia supmed) {
@@ -49,6 +48,4 @@ public class SupportmediaServiceImpl  implements SupportmediaService{
 			return supmedRepos.findById(id).get();
 	}
 
-
-	
 }
