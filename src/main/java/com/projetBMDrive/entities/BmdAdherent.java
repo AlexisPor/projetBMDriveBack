@@ -68,6 +68,7 @@ public class BmdAdherent implements java.io.Serializable {
 		this.bmdIdentite = bmdIdentite;
 	}
 
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ADH_ID_PANIER")
 	public BmdPanier getBmdPanier() {

@@ -44,8 +44,8 @@ public class AdherentServiceImpl implements AdherentService {
 	}
 
 	@Override
-	public BmdAdherent findByIdAdherent(BigDecimal adhIdLecteur) {
-		return adherentRepo.findById(adhIdLecteur).get();
+	public BmdAdherent findByIdAdherent(BigDecimal adhId) {
+		return adherentRepo.findById(adhId).get();
 	}
 	
 }
