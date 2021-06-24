@@ -56,6 +56,7 @@ public class ArticleRestController {
 	@PostMapping("/artMap")
 	public void addArticle(@RequestBody BmdArticle article) 
 	{
+		System.out.println("Article= "+article);
 		articleService.addArticle(article);
 	}
 	

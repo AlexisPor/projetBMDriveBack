@@ -152,7 +152,7 @@ public class BmdArticle implements java.io.Serializable {
 	}
 
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "bmdArticle")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdArticle")
 	public Set<BmdSupportmedia> getBmdSupportmedias() {
 		return this.bmdSupportmedias;
 	}

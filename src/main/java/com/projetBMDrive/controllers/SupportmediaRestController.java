@@ -42,9 +42,11 @@ public class SupportmediaRestController {
 	 * @return
 	 */
 	@GetMapping("/smMap/{supId}") 
-	public BmdSupportmedia findSuppermediaById(@PathVariable("supId") BigDecimal supId, BmdSupportmedia supmedia)
+	public BmdSupportmedia findSuppermediaById(@PathVariable("supId") BigDecimal supId)
 	{
+		System.err.println(supId);
 		return supmedService.findSupportmediaById(supId);
+		
 	}
 	
 	/**
@@ -62,7 +64,7 @@ public class SupportmediaRestController {
 	 * Modifier les infos d'un média.
 	 * @param supmedia
 	 */
-	@PutMapping("/smMap/{supId}")
+	@PutMapping("/smMap")
 	public void updateSuppermedia(@RequestBody BmdSupportmedia supmedia)
 	{
 		 supmedService.updateSupportmedia(supmedia);

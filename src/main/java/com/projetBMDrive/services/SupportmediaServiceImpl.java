@@ -19,6 +19,8 @@ public class SupportmediaServiceImpl  implements SupportmediaService{
 	private SupportmediaRepository supmedRepos;
 	@Autowired
 	private ArticleRepository articleRepos;
+	
+	
 
 	@Override
 	public void addSupportmedia(BmdSupportmedia supmed) {
@@ -39,13 +41,12 @@ public class SupportmediaServiceImpl  implements SupportmediaService{
 
 	@Override
 	public void deleteSupportmedia(BmdSupportmedia supmed) {
-		articleRepos.delete(supmed.getBmdArticle());
 		supmedRepos.delete(supmed);
 	}
 
 	@Override
 	public BmdSupportmedia findSupportmediaById(BigDecimal id) {
-		return supmedRepos.getOne(id);
+			return supmedRepos.findById(id).get();
 	}
 
 

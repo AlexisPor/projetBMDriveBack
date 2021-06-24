@@ -39,7 +39,7 @@ public class ArticleServiceImpl  implements ArticleService{
 
 	@Override
 	public BmdArticle findArticleById(BigDecimal id) {
-		return articleRepos.getOne(id);
+		return articleRepos.findById(id).get();
 	}
 
 	
