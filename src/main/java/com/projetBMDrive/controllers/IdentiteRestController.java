@@ -46,7 +46,7 @@ public class IdentiteRestController {
 	 * Modifier les infos d'une identité.
 	 * @param identite
 	 */
-	@PutMapping("/ideMap/{ideIdentite}")
+	@PutMapping("/ideMap")
 	public void updateIdentite(@RequestBody BmdIdentite identite) {
 		idenService.updateIdentite(identite);
 	}

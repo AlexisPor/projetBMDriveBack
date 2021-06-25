@@ -62,7 +62,7 @@ public class CategorieRestController {
 	 * Modifier les infos d'une catégorie.
 	 * @param cat
 	 */
-	@PutMapping("/catMap/{catId}")
+	@PutMapping("/catMap")
 	public void updateCategorie(@RequestBody BmdCategorie cat)
 	{
 		 categorieService.updateCategorie(cat);

@@ -70,7 +70,7 @@ public class ReservationRestController {
 	 * Modifier les infos d'une réservation.
 	 * @param res
 	 */
-	@PutMapping("/resMap/{resIdReservation}")
+	@PutMapping("/resMap")
 	public void updateReservation(@RequestBody BmdReservation res) {
 
 		reservationService.update(res);

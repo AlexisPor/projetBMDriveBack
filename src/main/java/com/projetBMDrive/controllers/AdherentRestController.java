@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -46,7 +47,7 @@ public class AdherentRestController {
 	 * Modifier les infos de l'adherent.
 	 * @param adherent
 	 */
-	@PutMapping("/adhMap/{adhIdLecteur}")
+	@PutMapping("/adhMap")
 	public void updateAdherent(@RequestBody BmdAdherent adherent) {
 		adhService.updateAdherent(adherent);
 	}
@@ -55,9 +56,9 @@ public class AdherentRestController {
 	 * Supprimer un adherent.
 	 * @param adhIdLecteur
 	 */
-	@DeleteMapping("/adhMap/{adhIdLecteur}")
-	public void deleteAdherent(BigDecimal adhIdLecteur) {
-		BmdAdherent adh = adhService.findByIdAdherent(adhIdLecteur);
+	@DeleteMapping("/adhMap/{adhId}")
+	public void deleteAdherent(@PathVariable(name="adhId") BigDecimal adhId) {
+		BmdAdherent adh = adhService.findByIdAdherent(adhId);
 		adhService.deleteAdherent(adh);
 	}
 	
@@ -66,8 +67,9 @@ public class AdherentRestController {
 	 * @param adhIdLecteur
 	 * @return
 	 */
-	@GetMapping("/adhMap/{adhIdLecteur}")
-	public BmdAdherent findByIdAdherent(BigDecimal adhIdLecteur) {
-		return adhService.findByIdAdherent(adhIdLecteur);
+	@GetMapping("/adhMap/{adhId}")
+	public BmdAdherent findByIdAdherent(@PathVariable(name="adhId") BigDecimal adhId) {
+		System.err.println(adhId);
+		return adhService.findByIdAdherent(adhId);
 	}
 }

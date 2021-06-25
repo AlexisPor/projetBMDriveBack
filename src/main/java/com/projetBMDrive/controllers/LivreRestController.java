@@ -61,7 +61,7 @@ public class LivreRestController {
 	 * Modifier les infos d'un livre.
 	 * @param livre
 	 */
-	@PutMapping("/livMap/{livId}")
+	@PutMapping("/livMap")
 	public void updateLivre(@RequestBody BmdLivre livre)
 	{
 		 livreService.updateLivre(livre);

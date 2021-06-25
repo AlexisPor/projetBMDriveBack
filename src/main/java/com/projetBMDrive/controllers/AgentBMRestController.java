@@ -70,7 +70,7 @@ public class AgentBMRestController {
 	 * Modifier les infos d'un agent.
 	 * @param abm
 	 */
-	@PutMapping("/agMap/{abmId}")
+	@PutMapping("/agMap")
 	public void updateAgentBM(@RequestBody BmdAgentbm abm) {
 
 		agentBMService.update(abm);

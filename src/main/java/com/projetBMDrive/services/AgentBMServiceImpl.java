@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.projetBMDrive.entities.BmdAgentbm;
 import com.projetBMDrive.repositories.AgentBMRepository;
-import com.projetBMDrive.repositories.IdentiteRepository;
 
 
 @Service
@@ -19,13 +18,8 @@ public class AgentBMServiceImpl implements AgentBMService {
 	@Autowired
 	private AgentBMRepository agentBMRepo;
 	
-	@Autowired
-	private IdentiteService ideRepo;
-
-	
 	@Override
 	public void add(BmdAgentbm abm) {
-		ideRepo.addIdentite(abm.getBmdIdentite());
 		agentBMRepo.save(abm);
 	}
 
@@ -36,13 +30,11 @@ public class AgentBMServiceImpl implements AgentBMService {
 
 	@Override
 	public void update(BmdAgentbm abm) {
-		ideRepo.updateIdentite(abm.getBmdIdentite());
 		agentBMRepo.save(abm);
 	}
 
 	@Override
 	public void delete(BmdAgentbm abm) {
-		ideRepo.deleteIdentite(abm.getBmdIdentite());
 		agentBMRepo.delete(abm);
 	}
 
