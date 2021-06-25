@@ -53,6 +53,7 @@ public class AgentBMRestController {
 	 */
 	@GetMapping("/agMap/{abmId}")
 	public BmdAgentbm findById(@PathVariable BigDecimal abmId) {
+		System.err.println(abmId);
 		return agentBMService.findById(abmId);
 	}
 

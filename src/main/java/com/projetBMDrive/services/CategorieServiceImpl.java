@@ -40,7 +40,7 @@ public class CategorieServiceImpl  implements CategorieService{
 
 	@Override
 	public BmdCategorie findCategorieById(BigDecimal id) {
-		return categorieRepos.getOne(id);
+		return categorieRepos.findById(id).get();
 	}
 	
 	
