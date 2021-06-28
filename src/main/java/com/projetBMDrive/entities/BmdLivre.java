@@ -1,5 +1,5 @@
 package com.projetBMDrive.entities;
-// Generated 17 juin 2021 � 10:20:52 by Hibernate Tools 5.0.6.Final
+// Generated 28 juin 2021 � 11:55:43 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
 
@@ -22,47 +22,46 @@ import javax.persistence.Table;
 public class BmdLivre implements java.io.Serializable {
 
 	private BigDecimal livId;
-	private BmdArticle bmdArticle;
-	private BigDecimal livNbPages;
+    private BmdArticle bmdArticle;
+    private BigDecimal livNbPages;
 
-	public BmdLivre() {
-	}
+    public BmdLivre() {
+    }
 
-	public BmdLivre(BigDecimal livId, BmdArticle bmdArticle, BigDecimal livNbPages) {
-		this.livId = livId;
-		this.bmdArticle = bmdArticle;
-		this.livNbPages = livNbPages;
-	}
+    public BmdLivre(BigDecimal livId, BmdArticle bmdArticle, BigDecimal livNbPages) {
+        this.livId = livId;
+        this.bmdArticle = bmdArticle;
+        this.livNbPages = livNbPages;
+    }
 
-	@Id
-	@SequenceGenerator(name="BMD_LIVRE_SEQ", sequenceName = "BMD_LIVRE_SEQ", allocationSize = 1)
+    @Id
+    @SequenceGenerator(name="BMD_LIVRE_SEQ", sequenceName = "BMD_LIVRE_SEQ", allocationSize = 1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="BMD_LIVRE_SEQ")
-	@Column(name = "LIV_ID", unique = true, nullable = false, precision = 22, scale = 0)
-	public BigDecimal getLivId() {
-		return this.livId;
-	}
+    @Column(name = "LIV_ID", unique = true, nullable = false, precision = 22, scale = 0)
+    public BigDecimal getLivId() {
+        return this.livId;
+    }
 
-	public void setLivId(BigDecimal livId) {
-		this.livId = livId;
-	}
+    public void setLivId(BigDecimal livId) {
+        this.livId = livId;
+    }
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "LIV_ARTICLE_ID", nullable = false)
-	public BmdArticle getBmdArticle() {
-		return this.bmdArticle;
-	}
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "LIV_ARTICLE_ID", nullable = false)
+    public BmdArticle getBmdArticle() {
+        return this.bmdArticle;
+    }
 
-	public void setBmdArticle(BmdArticle bmdArticle) {
-		this.bmdArticle = bmdArticle;
-	}
+    public void setBmdArticle(BmdArticle bmdArticle) {
+        this.bmdArticle = bmdArticle;
+    }
 
-	@Column(name = "LIV_NB_PAGES", nullable = false, precision = 22, scale = 0)
-	public BigDecimal getLivNbPages() {
-		return this.livNbPages;
-	}
+    @Column(name = "LIV_NB_PAGES", nullable = false, precision = 22, scale = 0)
+    public BigDecimal getLivNbPages() {
+        return this.livNbPages;
+    }
 
-	public void setLivNbPages(BigDecimal livNbPages) {
-		this.livNbPages = livNbPages;
-	}
-
+    public void setLivNbPages(BigDecimal livNbPages) {
+        this.livNbPages = livNbPages;
+    }
 }

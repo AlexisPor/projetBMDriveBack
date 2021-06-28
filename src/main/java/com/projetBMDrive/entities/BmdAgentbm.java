@@ -1,5 +1,5 @@
 package com.projetBMDrive.entities;
-// Generated 17 juin 2021 � 10:20:52 by Hibernate Tools 5.0.6.Final
+// Generated 28 juin 2021 � 11:55:43 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
 
@@ -24,79 +24,78 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class BmdAgentbm implements java.io.Serializable {
 
 	private BigDecimal abmId;
-	private BmdIdentite bmdIdentite;
-	private BmdReservation bmdReservation;
-	private String abmNomUtilisateur;
-	private String abmMotDePasse;
+    private BmdIdentite bmdIdentite;
+    private BmdReservation bmdReservation;
+    private String abmNomUtilisateur;
+    private String abmMotDePasse;
 
-	public BmdAgentbm() {
-	}
+    public BmdAgentbm() {
+    }
 
-	public BmdAgentbm(BigDecimal abmId, String abmNomUtilisateur, String abmMotDePasse) {
-		this.abmId = abmId;
-		this.abmNomUtilisateur = abmNomUtilisateur;
-		this.abmMotDePasse = abmMotDePasse;
-	}
+    public BmdAgentbm(BigDecimal abmId, String abmNomUtilisateur, String abmMotDePasse) {
+        this.abmId = abmId;
+        this.abmNomUtilisateur = abmNomUtilisateur;
+        this.abmMotDePasse = abmMotDePasse;
+    }
 
-	public BmdAgentbm(BigDecimal abmId, BmdIdentite bmdIdentite, BmdReservation bmdReservation,
-			String abmNomUtilisateur, String abmMotDePasse) {
-		this.abmId = abmId;
-		this.bmdIdentite = bmdIdentite;
-		this.bmdReservation = bmdReservation;
-		this.abmNomUtilisateur = abmNomUtilisateur;
-		this.abmMotDePasse = abmMotDePasse;
-	}
+    public BmdAgentbm(BigDecimal abmId, BmdIdentite bmdIdentite, BmdReservation bmdReservation,
+            String abmNomUtilisateur, String abmMotDePasse) {
+        this.abmId = abmId;
+        this.bmdIdentite = bmdIdentite;
+        this.bmdReservation = bmdReservation;
+        this.abmNomUtilisateur = abmNomUtilisateur;
+        this.abmMotDePasse = abmMotDePasse;
+    }
 
-	@Id
-	@SequenceGenerator(name="BMD_AGENTBM_SEQ", sequenceName = "BMD_AGENTBM_SEQ", allocationSize = 1)
+    @Id
+    @SequenceGenerator(name="BMD_AGENTBM_SEQ", sequenceName = "BMD_AGENTBM_SEQ", allocationSize = 1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="BMD_AGENTBM_SEQ")
-	@Column(name = "ABM_ID", unique = true, nullable = false, precision = 22, scale = 0)
-	public BigDecimal getAbmId() {
-		return this.abmId;
-	}
+    @Column(name = "ABM_ID", unique = true, nullable = false, precision = 22, scale = 0)
+    public BigDecimal getAbmId() {
+        return this.abmId;
+    }
+public void setAbmId(BigDecimal abmId) {
+        this.abmId = abmId;
+    }
 
-	public void setAbmId(BigDecimal abmId) {
-		this.abmId = abmId;
-	}
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ABM_ID_IDENTITE")
+    public BmdIdentite getBmdIdentite() {
+        return this.bmdIdentite;
+    }
 
-	@JsonIgnore
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "ABM_ID_IDENTITE")
-	public BmdIdentite getBmdIdentite() {
-		return this.bmdIdentite;
-	}
+    public void setBmdIdentite(BmdIdentite bmdIdentite) {
+        this.bmdIdentite = bmdIdentite;
+    }
 
-	public void setBmdIdentite(BmdIdentite bmdIdentite) {
-		this.bmdIdentite = bmdIdentite;
-	}
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ABM_ID_RESERVATION")
+    public BmdReservation getBmdReservation() {
+        return this.bmdReservation;
+    }
 
-	@JsonIgnore
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ABM_ID_RESERVATION")
-	public BmdReservation getBmdReservation() {
-		return this.bmdReservation;
-	}
+    public void setBmdReservation(BmdReservation bmdReservation) {
+        this.bmdReservation = bmdReservation;
+    }
 
-	public void setBmdReservation(BmdReservation bmdReservation) {
-		this.bmdReservation = bmdReservation;
-	}
+    @Column(name = "ABM_NOM_UTILISATEUR", nullable = false, length = 20)
+    public String getAbmNomUtilisateur() {
+        return this.abmNomUtilisateur;
+    }
 
-	@Column(name = "ABM_NOM_UTILISATEUR", nullable = false, length = 20)
-	public String getAbmNomUtilisateur() {
-		return this.abmNomUtilisateur;
-	}
+    public void setAbmNomUtilisateur(String abmNomUtilisateur) {
+        this.abmNomUtilisateur = abmNomUtilisateur;
+    }
 
-	public void setAbmNomUtilisateur(String abmNomUtilisateur) {
-		this.abmNomUtilisateur = abmNomUtilisateur;
-	}
+    @Column(name = "ABM_MOT_DE_PASSE", nullable = false, length = 20)
+    public String getAbmMotDePasse() {
+        return this.abmMotDePasse;
+    }
 
-	@Column(name = "ABM_MOT_DE_PASSE", nullable = false, length = 20)
-	public String getAbmMotDePasse() {
-		return this.abmMotDePasse;
-	}
-
-	public void setAbmMotDePasse(String abmMotDePasse) {
-		this.abmMotDePasse = abmMotDePasse;
-	}
+    public void setAbmMotDePasse(String abmMotDePasse) {
+        this.abmMotDePasse = abmMotDePasse;
+    }
 
 }

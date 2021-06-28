@@ -1,5 +1,5 @@
 package com.projetBMDrive.entities;
-// Generated 17 juin 2021 � 10:20:52 by Hibernate Tools 5.0.6.Final
+// Generated 28 juin 2021 � 11:55:43 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -27,77 +27,76 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class BmdPanier implements java.io.Serializable {
 
 	private BigDecimal panId;
-	private BmdArticle bmdArticle;
-	private BmdReservation bmdReservation;
-	private Set<BmdVisiteur> bmdVisiteurs = new HashSet<BmdVisiteur>(0);
-	private Set<BmdAdherent> bmdAdherents = new HashSet<BmdAdherent>(0);
+    private BmdArticle bmdArticle;
+    private BmdReservation bmdReservation;
+    private Set<BmdVisiteur> bmdVisiteurs = new HashSet<BmdVisiteur>(0);
+    private Set<BmdAdherent> bmdAdherents = new HashSet<BmdAdherent>(0);
 
-	public BmdPanier() {
-	}
+    public BmdPanier() {
+    }
 
-	public BmdPanier(BigDecimal panId) {
-		this.panId = panId;
-	}
+    public BmdPanier(BigDecimal panId) {
+        this.panId = panId;
+    }
 
-	public BmdPanier(BigDecimal panId, BmdArticle bmdArticle, BmdReservation bmdReservation,
-			Set<BmdVisiteur> bmdVisiteurs, Set<BmdAdherent> bmdAdherents) {
-		this.panId = panId;
-		this.bmdArticle = bmdArticle;
-		this.bmdReservation = bmdReservation;
-		this.bmdVisiteurs = bmdVisiteurs;
-		this.bmdAdherents = bmdAdherents;
-	}
+    public BmdPanier(BigDecimal panId, BmdArticle bmdArticle, BmdReservation bmdReservation,
+            Set<BmdVisiteur> bmdVisiteurs, Set<BmdAdherent> bmdAdherents) {
+        this.panId = panId;
+        this.bmdArticle = bmdArticle;
+        this.bmdReservation = bmdReservation;
+        this.bmdVisiteurs = bmdVisiteurs;
+        this.bmdAdherents = bmdAdherents;
+    }
 
-	@Id
-	@SequenceGenerator(name="BMD_PANIER_SEQ", sequenceName = "BMD_PANIER_SEQ", allocationSize = 1)
+    @Id
+    @SequenceGenerator(name="BMD_PANIER_SEQ", sequenceName = "BMD_PANIER_SEQ", allocationSize = 1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="BMD_PANIER_SEQ")
-	@Column(name = "PAN_ID", unique = true, nullable = false, precision = 22, scale = 0)
-	public BigDecimal getPanId() {
-		return this.panId;
-	}
+    @Column(name = "PAN_ID", unique = true, nullable = false, precision = 22, scale = 0)
+    public BigDecimal getPanId() {
+        return this.panId;
+    }
 
-	public void setPanId(BigDecimal panId) {
-		this.panId = panId;
-	}
+    public void setPanId(BigDecimal panId) {
+        this.panId = panId;
+    }
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PAN_ID_ARTICLE")
-	public BmdArticle getBmdArticle() {
-		return this.bmdArticle;
-	}
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PAN_ID_ARTICLE")
+    public BmdArticle getBmdArticle() {
+        return this.bmdArticle;
+    }
 
-	public void setBmdArticle(BmdArticle bmdArticle) {
-		this.bmdArticle = bmdArticle;
-	}
+    public void setBmdArticle(BmdArticle bmdArticle) {
+        this.bmdArticle = bmdArticle;
+    }
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PAN_ID_RESERVATION")
-	public BmdReservation getBmdReservation() {
-		return this.bmdReservation;
-	}
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PAN_ID_RESERVATION")
+    public BmdReservation getBmdReservation() {
+        return this.bmdReservation;
+    }
 
-	public void setBmdReservation(BmdReservation bmdReservation) {
-		this.bmdReservation = bmdReservation;
-	}
+    public void setBmdReservation(BmdReservation bmdReservation) {
+        this.bmdReservation = bmdReservation;
+    }
 
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdPanier")
-	public Set<BmdVisiteur> getBmdVisiteurs() {
-		return this.bmdVisiteurs;
-	}
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdPanier")
+    public Set<BmdVisiteur> getBmdVisiteurs() {
+        return this.bmdVisiteurs;
+    }
 
-	public void setBmdVisiteurs(Set<BmdVisiteur> bmdVisiteurs) {
-		this.bmdVisiteurs = bmdVisiteurs;
-	}
+    public void setBmdVisiteurs(Set<BmdVisiteur> bmdVisiteurs) {
+        this.bmdVisiteurs = bmdVisiteurs;
+    }
 
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdPanier")
-	public Set<BmdAdherent> getBmdAdherents() {
-		return this.bmdAdherents;
-	}
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdPanier")
+    public Set<BmdAdherent> getBmdAdherents() {
+        return this.bmdAdherents;
+    }
 
-	public void setBmdAdherents(Set<BmdAdherent> bmdAdherents) {
-		this.bmdAdherents = bmdAdherents;
-	}
-
+    public void setBmdAdherents(Set<BmdAdherent> bmdAdherents) {
+        this.bmdAdherents = bmdAdherents;
+    }
 }

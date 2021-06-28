@@ -1,5 +1,5 @@
 package com.projetBMDrive.entities;
-// Generated 17 juin 2021 � 10:20:52 by Hibernate Tools 5.0.6.Final
+// Generated 28 juin 2021 � 11:55:43 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
 
@@ -23,78 +23,76 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "BMD_ADHERENT", schema = "BMDRIVE")
 public class BmdAdherent implements java.io.Serializable {
 
-	private BigDecimal adhId;
-	private BmdIdentite bmdIdentite;
-	private BmdPanier bmdPanier;
-	private String adhNomUtilisateur;
-	private String adhMotDePasse;
+	 private BigDecimal adhId;
+	    private BmdIdentite bmdIdentite;
+	    private BmdPanier bmdPanier;
+	    private String adhNomUtilisateur;
+	    private String adhMotDePasse;
 
-	public BmdAdherent() {
-	}
+	    public BmdAdherent() {
+	    }
 
-	public BmdAdherent(BigDecimal adhId) {
-		this.adhId = adhId;
-	}
+	    public BmdAdherent(BigDecimal adhId) {
+	        this.adhId = adhId;
+	    }
 
-	public BmdAdherent(BigDecimal adhId, BmdIdentite bmdIdentite, BmdPanier bmdPanier, String adhNomUtilisateur,
-			String adhMotDePasse) {
-		this.adhId = adhId;
-		this.bmdIdentite = bmdIdentite;
-		this.bmdPanier = bmdPanier;
-		this.adhNomUtilisateur = adhNomUtilisateur;
-		this.adhMotDePasse = adhMotDePasse;
-	}
+	    public BmdAdherent(BigDecimal adhId, BmdIdentite bmdIdentite, BmdPanier bmdPanier, String adhNomUtilisateur,
+	            String adhMotDePasse) {
+	        this.adhId = adhId;
+	        this.bmdIdentite = bmdIdentite;
+	        this.bmdPanier = bmdPanier;
+	        this.adhNomUtilisateur = adhNomUtilisateur;
+	        this.adhMotDePasse = adhMotDePasse;
+	    }
 
-	@Id
-	@SequenceGenerator(name="BMD_ADHERENT_SEQ", sequenceName = "BMD_ADHERENT_SEQ", allocationSize = 1)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="BMD_ADHERENT_SEQ")
-	@Column(name = "ADH_ID", unique = true, nullable = false, precision = 22, scale = 0)
-	public BigDecimal getAdhId() {
-		return this.adhId;
-	}
-
+	    @Id
+	    @SequenceGenerator(name="BMD_ADHERENT_SEQ", sequenceName = "BMD_ADHERENT_SEQ", allocationSize = 1)
+	    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="BMD_ADHERENT_SEQ")
+	    @Column(name = "ADH_ID", unique = true, nullable = false, precision = 22, scale = 0)
+	    public BigDecimal getAdhId() {
+	        return this.adhId;
+	    }
 	public void setAdhId(BigDecimal adhId) {
-		this.adhId = adhId;
-	}
+	        this.adhId = adhId;
+	    }
 
-	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "ADH_ID_IDENTITE")
-	public BmdIdentite getBmdIdentite() {
-		return this.bmdIdentite;
-	}
 
-	public void setBmdIdentite(BmdIdentite bmdIdentite) {
-		this.bmdIdentite = bmdIdentite;
-	}
+	    @ManyToOne(fetch = FetchType.EAGER)
+	    @JoinColumn(name = "ADH_ID_IDENTITE")
+	    public BmdIdentite getBmdIdentite() {
+	        return this.bmdIdentite;
+	    }
 
-	@JsonIgnore
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ADH_ID_PANIER")
-	public BmdPanier getBmdPanier() {
-		return this.bmdPanier;
-	}
+	    public void setBmdIdentite(BmdIdentite bmdIdentite) {
+	        this.bmdIdentite = bmdIdentite;
+	    }
 
-	public void setBmdPanier(BmdPanier bmdPanier) {
-		this.bmdPanier = bmdPanier;
-	}
+	    @JsonIgnore
+	    @ManyToOne(fetch = FetchType.LAZY)
+	    @JoinColumn(name = "ADH_ID_PANIER")
+	    public BmdPanier getBmdPanier() {
+	        return this.bmdPanier;
+	    }
 
-	@Column(name = "ADH_NOM_UTILISATEUR", length = 20)
-	public String getAdhNomUtilisateur() {
-		return this.adhNomUtilisateur;
-	}
+	    public void setBmdPanier(BmdPanier bmdPanier) {
+	        this.bmdPanier = bmdPanier;
+	    }
 
-	public void setAdhNomUtilisateur(String adhNomUtilisateur) {
-		this.adhNomUtilisateur = adhNomUtilisateur;
-	}
+	    @Column(name = "ADH_NOM_UTILISATEUR", length = 20)
+	    public String getAdhNomUtilisateur() {
+	        return this.adhNomUtilisateur;
+	    }
 
-	@Column(name = "ADH_MOT_DE_PASSE", length = 20)
-	public String getAdhMotDePasse() {
-		return this.adhMotDePasse;
-	}
+	    public void setAdhNomUtilisateur(String adhNomUtilisateur) {
+	        this.adhNomUtilisateur = adhNomUtilisateur;
+	    }
 
-	public void setAdhMotDePasse(String adhMotDePasse) {
-		this.adhMotDePasse = adhMotDePasse;
-	}
+	    @Column(name = "ADH_MOT_DE_PASSE", length = 20)
+	    public String getAdhMotDePasse() {
+	        return this.adhMotDePasse;
+	    }
 
+	    public void setAdhMotDePasse(String adhMotDePasse) {
+	        this.adhMotDePasse = adhMotDePasse;
+	    }
 }

@@ -2,18 +2,16 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
-	<table-filter match-name="BMD_ADHERENT" match-schema="BMDRIVE"></table-filter>
-	<table-filter match-name="BMD_ADRESSE" match-schema="BMDRIVE"></table-filter>
-	<table-filter match-name="BMD_AGENTBM" match-schema="BMDRIVE"></table-filter>
-	<table-filter match-name="BMD_ARTICLE" match-schema="BMDRIVE"></table-filter>
-	<table-filter match-name="BMD_CASIER" match-schema="BMDRIVE"></table-filter>
-	<table-filter match-name="BMD_CATEGORIE" match-schema="BMDRIVE"></table-filter>
-	<table-filter match-name="BMD_IDENTITE" match-schema="BMDRIVE"></table-filter>
-	<table-filter match-name="BMD_LIVRE" match-schema="BMDRIVE"></table-filter>
-	<table-filter match-name="BMD_PANIER" match-schema="BMDRIVE"></table-filter>
-	<table-filter match-name="BMD_RESERVATION" match-schema="BMDRIVE"></table-filter>
-	<table-filter match-name="BMD_SUPPORTMEDIA"
-		match-schema="BMDRIVE">
-	</table-filter>
-	<table-filter match-name="BMD_VISITEUR" match-schema="BMDRIVE"></table-filter>
+  <table-filter match-schema="BMDRIVE" match-name="BMD_ADHERENT"/>
+  <table-filter match-schema="BMDRIVE" match-name="BMD_ADRESSE"/>
+  <table-filter match-schema="BMDRIVE" match-name="BMD_AGENTBM"/>
+  <table-filter match-schema="BMDRIVE" match-name="BMD_ARTICLE"/>
+  <table-filter match-schema="BMDRIVE" match-name="BMD_CASIER"/>
+  <table-filter match-schema="BMDRIVE" match-name="BMD_CATEGORIE"/>
+  <table-filter match-schema="BMDRIVE" match-name="BMD_IDENTITE"/>
+  <table-filter match-schema="BMDRIVE" match-name="BMD_LIVRE"/>
+  <table-filter match-schema="BMDRIVE" match-name="BMD_PANIER"/>
+  <table-filter match-schema="BMDRIVE" match-name="BMD_RESERVATION"/>
+  <table-filter match-schema="BMDRIVE" match-name="BMD_SUPPORTMEDIA"/>
+  <table-filter match-schema="BMDRIVE" match-name="BMD_VISITEUR"/>
 </hibernate-reverse-engineering>
