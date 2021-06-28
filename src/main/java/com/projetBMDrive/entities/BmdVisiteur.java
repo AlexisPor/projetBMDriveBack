@@ -1,5 +1,5 @@
 package com.projetBMDrive.entities;
-// Generated 28 juin 2021 � 11:55:43 by Hibernate Tools 5.0.6.Final
+// Generated 28 juin 2021 � 16:47:16 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
 
@@ -22,51 +22,52 @@ import javax.persistence.Table;
 public class BmdVisiteur implements java.io.Serializable {
 
 	private BigDecimal visId;
-    private BmdIdentite bmdIdentite;
-    private BmdPanier bmdPanier;
+	private BmdIdentite bmdIdentite;
+	private BmdPanier bmdPanier;
 
-    public BmdVisiteur() {
-    }
+	public BmdVisiteur() {
+	}
 
-    public BmdVisiteur(BigDecimal visId) {
-        this.visId = visId;
-    }
+	public BmdVisiteur(BigDecimal visId) {
+		this.visId = visId;
+	}
 
-    public BmdVisiteur(BigDecimal visId, BmdIdentite bmdIdentite, BmdPanier bmdPanier) {
-        this.visId = visId;
-        this.bmdIdentite = bmdIdentite;
-        this.bmdPanier = bmdPanier;
-    }
+	public BmdVisiteur(BigDecimal visId, BmdIdentite bmdIdentite, BmdPanier bmdPanier) {
+		this.visId = visId;
+		this.bmdIdentite = bmdIdentite;
+		this.bmdPanier = bmdPanier;
+	}
 
-    @Id
-    @SequenceGenerator(name="BMD_VISITEUR_SEQ", sequenceName = "BMD_VISITEUR_SEQ", allocationSize = 1)
+	@Id
+	@SequenceGenerator(name="BMD_VISITEUR_SEQ", sequenceName = "BMD_VISITEUR_SEQ", allocationSize = 1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="BMD_VISITEUR_SEQ")
-    @Column(name = "VIS_ID", unique = true, nullable = false, precision = 22, scale = 0)
-    public BigDecimal getVisId() {
-        return this.visId;
-    }
+	@Column(name = "VIS_ID", unique = true, nullable = false, precision = 22, scale = 0)
+	public BigDecimal getVisId() {
+		return this.visId;
+	}
 
-    public void setVisId(BigDecimal visId) {
-        this.visId = visId;
-    }
+	public void setVisId(BigDecimal visId) {
+		this.visId = visId;
+	}
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "VIS_ID_IDENTITE")
-    public BmdIdentite getBmdIdentite() {
-        return this.bmdIdentite;
-    }
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "VIS_ID_IDENTITE")
+	public BmdIdentite getBmdIdentite() {
+		return this.bmdIdentite;
+	}
 
-    public void setBmdIdentite(BmdIdentite bmdIdentite) {
-        this.bmdIdentite = bmdIdentite;
-    }
+	public void setBmdIdentite(BmdIdentite bmdIdentite) {
+		this.bmdIdentite = bmdIdentite;
+	}
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "VIS_ID_PANIER")
-    public BmdPanier getBmdPanier() {
-        return this.bmdPanier;
-    }
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "VIS_ID_PANIER")
+	public BmdPanier getBmdPanier() {
+		return this.bmdPanier;
+	}
 
-    public void setBmdPanier(BmdPanier bmdPanier) {
-        this.bmdPanier = bmdPanier;
-    }
+	public void setBmdPanier(BmdPanier bmdPanier) {
+		this.bmdPanier = bmdPanier;
+	}
+
 }

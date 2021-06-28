@@ -1,5 +1,5 @@
 package com.projetBMDrive.entities;
-// Generated 28 juin 2021 � 11:55:43 by Hibernate Tools 5.0.6.Final
+// Generated 28 juin 2021 � 16:47:16 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
 
@@ -61,7 +61,7 @@ public class BmdCasier implements java.io.Serializable {
 		this.bmdReservation = bmdReservation;
 	}
 
-	@Column(name = "CAS_ETAT", nullable = false, length = 20)
+	@Column(name = "CAS_ETAT", nullable = false, length = 80)
 	public String getCasEtat() {
 		return this.casEtat;
 	}

@@ -4,23 +4,23 @@
     <session-factory>
         <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
         <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-        <property name="hibernate.connection.password">ciara</property>
+        <property name="hibernate.connection.password">jennifer</property>
         <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
         <property name="hibernate.connection.username">BMDRIVE</property>
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
         <property name="hibernate.search.autoregister_listeners">true</property>
         <property name="hibernate.validator.apply_to_ddl">false</property>
-        <mapping class="com.projetBMDrive.entities.BmdIdentite"/>
-        <mapping class="com.projetBMDrive.entities.BmdVisiteur"/>
-        <mapping class="com.projetBMDrive.entities.BmdAgentbm"/>
-        <mapping class="com.projetBMDrive.entities.BmdLivre"/>
-        <mapping class="com.projetBMDrive.entities.BmdArticle"/>
-        <mapping class="com.projetBMDrive.entities.BmdPanier"/>
-        <mapping class="com.projetBMDrive.entities.BmdAdresse"/>
-        <mapping class="com.projetBMDrive.entities.BmdCasier"/>
-        <mapping class="com.projetBMDrive.entities.BmdCategorie"/>
-        <mapping class="com.projetBMDrive.entities.BmdAdherent"/>
-        <mapping class="com.projetBMDrive.entities.BmdReservation"/>
-        <mapping class="com.projetBMDrive.entities.BmdSupportmedia"/>
+        <mapping class="fr.projetBMDrive.entities.BmdCasier"/>
+        <mapping class="fr.projetBMDrive.entities.BmdIdentite"/>
+        <mapping class="fr.projetBMDrive.entities.BmdLivre"/>
+        <mapping class="fr.projetBMDrive.entities.BmdAdherent"/>
+        <mapping class="fr.projetBMDrive.entities.BmdCategorie"/>
+        <mapping class="fr.projetBMDrive.entities.BmdAdresse"/>
+        <mapping class="fr.projetBMDrive.entities.BmdSupportmedia"/>
+        <mapping class="fr.projetBMDrive.entities.BmdPanier"/>
+        <mapping class="fr.projetBMDrive.entities.BmdAgentbm"/>
+        <mapping class="fr.projetBMDrive.entities.BmdArticle"/>
+        <mapping class="fr.projetBMDrive.entities.BmdVisiteur"/>
+        <mapping class="fr.projetBMDrive.entities.BmdReservation"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,5 +1,5 @@
 package com.projetBMDrive.entities;
-// Generated 28 juin 2021 � 11:55:43 by Hibernate Tools 5.0.6.Final
+// Generated 28 juin 2021 � 16:47:16 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
 
@@ -22,52 +22,64 @@ import javax.persistence.Table;
 public class BmdCategorie implements java.io.Serializable {
 
 	private BigDecimal catId;
-    private BmdArticle bmdArticle;
-    private String catLibelle;
+	private BmdLivre bmdLivre;
+	private BmdSupportmedia bmdSupportmedia;
+	private String catLibelle;
 
-    public BmdCategorie() {
-    }
+	public BmdCategorie() {
+	}
 
-    public BmdCategorie(BigDecimal catId, String catLibelle) {
-        this.catId = catId;
-        this.catLibelle = catLibelle;
-    }
+	public BmdCategorie(BigDecimal catId, String catLibelle) {
+		this.catId = catId;
+		this.catLibelle = catLibelle;
+	}
 
-    public BmdCategorie(BigDecimal catId, BmdArticle bmdArticle, String catLibelle) {
-        this.catId = catId;
-        this.bmdArticle = bmdArticle;
-        this.catLibelle = catLibelle;
-    }
+	public BmdCategorie(BigDecimal catId, BmdLivre bmdLivre, BmdSupportmedia bmdSupportmedia, String catLibelle) {
+		this.catId = catId;
+		this.bmdLivre = bmdLivre;
+		this.bmdSupportmedia = bmdSupportmedia;
+		this.catLibelle = catLibelle;
+	}
 
-    @Id
-    @SequenceGenerator(name="BMD_CATEGORIE_SEQ", sequenceName = "BMD_CATEGORIE_SEQ", allocationSize = 1)
+	@Id
+	@SequenceGenerator(name="BMD_CATEGORIE_SEQ", sequenceName = "BMD_CATEGORIE_SEQ", allocationSize = 1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="BMD_CATEGORIE_SEQ")
-    @Column(name = "CAT_ID", unique = true, nullable = false, precision = 22, scale = 0)
-    public BigDecimal getCatId() {
-        return this.catId;
-    }
+	@Column(name = "CAT_ID", unique = true, nullable = false, precision = 22, scale = 0)
+	public BigDecimal getCatId() {
+		return this.catId;
+	}
 
-    public void setCatId(BigDecimal catId) {
-        this.catId = catId;
-    }
+	public void setCatId(BigDecimal catId) {
+		this.catId = catId;
+	}
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "CAT_ARTICLE_ID")
-    public BmdArticle getBmdArticle() {
-        return this.bmdArticle;
-    }
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "CAT_LIVRE_ID")
+	public BmdLivre getBmdLivre() {
+		return this.bmdLivre;
+	}
 
-    public void setBmdArticle(BmdArticle bmdArticle) {
-        this.bmdArticle = bmdArticle;
-    }
+	public void setBmdLivre(BmdLivre bmdLivre) {
+		this.bmdLivre = bmdLivre;
+	}
 
-    @Column(name = "CAT_LIBELLE", nullable = false, length = 20)
-    public String getCatLibelle() {
-        return this.catLibelle;
-    }
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "CAT_SUPMED_ID")
+	public BmdSupportmedia getBmdSupportmedia() {
+		return this.bmdSupportmedia;
+	}
 
-    public void setCatLibelle(String catLibelle) {
-        this.catLibelle = catLibelle;
-    }
+	public void setBmdSupportmedia(BmdSupportmedia bmdSupportmedia) {
+		this.bmdSupportmedia = bmdSupportmedia;
+	}
+
+	@Column(name = "CAT_LIBELLE", nullable = false, length = 80)
+	public String getCatLibelle() {
+		return this.catLibelle;
+	}
+
+	public void setCatLibelle(String catLibelle) {
+		this.catLibelle = catLibelle;
+	}
 
 }

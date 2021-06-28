@@ -1,7 +1,9 @@
 package com.projetBMDrive.entities;
-// Generated 28 juin 2021 � 11:55:43 by Hibernate Tools 5.0.6.Final
+// Generated 28 juin 2021 � 16:47:16 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
+import java.sql.Blob;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,6 +18,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -28,43 +32,48 @@ public class BmdIdentite implements java.io.Serializable {
 
 	private BigDecimal ideId;
 	private BmdAdresse bmdAdresse;
+	private Date ideDateNaissance;
+	private String ideMail;
 	private String ideNom;
 	private String idePrenom;
-	private BigDecimal ideAge;
-	private char ideSexe;
+	private String ideSexe;
 	private String ideTelephone;
-	private String ideMail;
-	private Set<BmdAgentbm> bmdAgentbms = new HashSet<BmdAgentbm>(0);
+	private Blob ideJustificatifIdentite;
+	private Blob ideJustificatifDomicile;
 	private Set<BmdVisiteur> bmdVisiteurs = new HashSet<BmdVisiteur>(0);
 	private Set<BmdAdherent> bmdAdherents = new HashSet<BmdAdherent>(0);
 
 	public BmdIdentite() {
 	}
 
-	public BmdIdentite(BigDecimal ideId, BmdAdresse bmdAdresse, String ideNom, String idePrenom, BigDecimal ideAge,
-			char ideSexe, String ideTelephone, String ideMail) {
+	public BmdIdentite(BigDecimal ideId, BmdAdresse bmdAdresse, Date ideDateNaissance, String ideMail, String ideNom,
+			String idePrenom, String ideSexe, String ideTelephone, Blob ideJustificatifIdentite,
+			Blob ideJustificatifDomicile) {
 		this.ideId = ideId;
 		this.bmdAdresse = bmdAdresse;
+		this.ideDateNaissance = ideDateNaissance;
+		this.ideMail = ideMail;
 		this.ideNom = ideNom;
 		this.idePrenom = idePrenom;
-		this.ideAge = ideAge;
 		this.ideSexe = ideSexe;
 		this.ideTelephone = ideTelephone;
-		this.ideMail = ideMail;
+		this.ideJustificatifIdentite = ideJustificatifIdentite;
+		this.ideJustificatifDomicile = ideJustificatifDomicile;
 	}
 
-	public BmdIdentite(BigDecimal ideId, BmdAdresse bmdAdresse, String ideNom, String idePrenom, BigDecimal ideAge,
-			char ideSexe, String ideTelephone, String ideMail, Set<BmdAgentbm> bmdAgentbms,
-			Set<BmdVisiteur> bmdVisiteurs, Set<BmdAdherent> bmdAdherents) {
+	public BmdIdentite(BigDecimal ideId, BmdAdresse bmdAdresse, Date ideDateNaissance, String ideMail, String ideNom,
+			String idePrenom, String ideSexe, String ideTelephone, Blob ideJustificatifIdentite,
+			Blob ideJustificatifDomicile, Set<BmdVisiteur> bmdVisiteurs, Set<BmdAdherent> bmdAdherents) {
 		this.ideId = ideId;
 		this.bmdAdresse = bmdAdresse;
+		this.ideDateNaissance = ideDateNaissance;
+		this.ideMail = ideMail;
 		this.ideNom = ideNom;
 		this.idePrenom = idePrenom;
-		this.ideAge = ideAge;
 		this.ideSexe = ideSexe;
 		this.ideTelephone = ideTelephone;
-		this.ideMail = ideMail;
-		this.bmdAgentbms = bmdAgentbms;
+		this.ideJustificatifIdentite = ideJustificatifIdentite;
+		this.ideJustificatifDomicile = ideJustificatifDomicile;
 		this.bmdVisiteurs = bmdVisiteurs;
 		this.bmdAdherents = bmdAdherents;
 	}
@@ -91,52 +100,17 @@ public class BmdIdentite implements java.io.Serializable {
 		this.bmdAdresse = bmdAdresse;
 	}
 
-	@Column(name = "IDE_NOM", nullable = false, length = 40)
-	public String getIdeNom() {
-		return this.ideNom;
+	@Temporal(TemporalType.DATE)
+	@Column(name = "IDE_DATE_NAISSANCE", nullable = false, length = 7)
+	public Date getIdeDateNaissance() {
+		return this.ideDateNaissance;
 	}
 
-	public void setIdeNom(String ideNom) {
-		this.ideNom = ideNom;
+	public void setIdeDateNaissance(Date ideDateNaissance) {
+		this.ideDateNaissance = ideDateNaissance;
 	}
 
-	@Column(name = "IDE_PRENOM", nullable = false, length = 30)
-	public String getIdePrenom() {
-		return this.idePrenom;
-	}
-
-	public void setIdePrenom(String idePrenom) {
-		this.idePrenom = idePrenom;
-	}
-
-	@Column(name = "IDE_AGE", nullable = false, precision = 22, scale = 0)
-	public BigDecimal getIdeAge() {
-		return this.ideAge;
-	}
-
-	public void setIdeAge(BigDecimal ideAge) {
-		this.ideAge = ideAge;
-	}
-
-	@Column(name = "IDE_SEXE", nullable = false, length = 1)
-	public char getIdeSexe() {
-		return this.ideSexe;
-	}
-
-	public void setIdeSexe(char ideSexe) {
-		this.ideSexe = ideSexe;
-	}
-
-	@Column(name = "IDE_TELEPHONE", nullable = false, length = 20)
-	public String getIdeTelephone() {
-		return this.ideTelephone;
-	}
-
-	public void setIdeTelephone(String ideTelephone) {
-		this.ideTelephone = ideTelephone;
-	}
-
-	@Column(name = "IDE_MAIL", nullable = false, length = 40)
+	@Column(name = "IDE_MAIL", nullable = false, length = 400)
 	public String getIdeMail() {
 		return this.ideMail;
 	}
@@ -145,16 +119,60 @@ public class BmdIdentite implements java.io.Serializable {
 		this.ideMail = ideMail;
 	}
 
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdIdentite")
-	public Set<BmdAgentbm> getBmdAgentbms() {
-		return this.bmdAgentbms;
+	@Column(name = "IDE_NOM", nullable = false, length = 200)
+	public String getIdeNom() {
+		return this.ideNom;
 	}
 
-	public void setBmdAgentbms(Set<BmdAgentbm> bmdAgentbms) {
-		this.bmdAgentbms = bmdAgentbms;
+	public void setIdeNom(String ideNom) {
+		this.ideNom = ideNom;
 	}
 
+	@Column(name = "IDE_PRENOM", nullable = false, length = 200)
+	public String getIdePrenom() {
+		return this.idePrenom;
+	}
+
+	public void setIdePrenom(String idePrenom) {
+		this.idePrenom = idePrenom;
+	}
+
+	@Column(name = "IDE_SEXE", nullable = false, length = 4)
+	public String getIdeSexe() {
+		return this.ideSexe;
+	}
+
+	public void setIdeSexe(String ideSexe) {
+		this.ideSexe = ideSexe;
+	}
+
+	@Column(name = "IDE_TELEPHONE", nullable = false, length = 80)
+	public String getIdeTelephone() {
+		return this.ideTelephone;
+	}
+
+	public void setIdeTelephone(String ideTelephone) {
+		this.ideTelephone = ideTelephone;
+	}
+
+	@Column(name = "IDE_JUSTIFICATIF_IDENTITE", nullable = false)
+	public Blob getIdeJustificatifIdentite() {
+		return this.ideJustificatifIdentite;
+	}
+
+	public void setIdeJustificatifIdentite(Blob ideJustificatifIdentite) {
+		this.ideJustificatifIdentite = ideJustificatifIdentite;
+	}
+
+	@Column(name = "IDE_JUSTIFICATIF_DOMICILE", nullable = false)
+	public Blob getIdeJustificatifDomicile() {
+		return this.ideJustificatifDomicile;
+	}
+
+	public void setIdeJustificatifDomicile(Blob ideJustificatifDomicile) {
+		this.ideJustificatifDomicile = ideJustificatifDomicile;
+	}
+	
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdIdentite")
 	public Set<BmdVisiteur> getBmdVisiteurs() {
@@ -164,9 +182,9 @@ public class BmdIdentite implements java.io.Serializable {
 	public void setBmdVisiteurs(Set<BmdVisiteur> bmdVisiteurs) {
 		this.bmdVisiteurs = bmdVisiteurs;
 	}
-
+	
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "bmdIdentite")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdIdentite")
 	public Set<BmdAdherent> getBmdAdherents() {
 		return this.bmdAdherents;
 	}

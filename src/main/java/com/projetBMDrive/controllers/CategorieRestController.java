@@ -74,8 +74,9 @@ public class CategorieRestController {
 	 * @param cat
 	 */
 	@DeleteMapping("/catMap/{catId}")
-	public void deleteCategorie(@PathVariable("catId") BigDecimal catId, BmdCategorie cat) 
+	public void deleteCategorie(@PathVariable("catId") BigDecimal catId) 
 	{
+		BmdCategorie cat= categorieService.findCategorieById(catId);
 		categorieService.deleteCategorie(cat);
 	}
 }

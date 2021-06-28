@@ -1,8 +1,7 @@
 package com.projetBMDrive.entities;
-// Generated 28 juin 2021 � 11:55:43 by Hibernate Tools 5.0.6.Final
+// Generated 28 juin 2021 � 16:47:16 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,8 +14,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -28,135 +25,89 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class BmdArticle implements java.io.Serializable {
 
 	private BigDecimal artId;
-    private String artCote;
-    private String artTitre;
-    private String artAuteur;
-    private Date artDateEmprunt;
-    private Date artDateRetour;
-    private Set<BmdLivre> bmdLivres = new HashSet<BmdLivre>(0);
-    private Set<BmdPanier> bmdPaniers = new HashSet<BmdPanier>(0);
-    private Set<BmdCategorie> bmdCategories = new HashSet<BmdCategorie>(0);
-    private Set<BmdSupportmedia> bmdSupportmedias = new HashSet<BmdSupportmedia>(0);
+	private String artAuteur;
+	private String artCote;
+	private String artTitre;
+	private Set<BmdSupportmedia> bmdSupportmedias = new HashSet<BmdSupportmedia>(0);
+	private Set<BmdLivre> bmdLivres = new HashSet<BmdLivre>(0);
 
-    public BmdArticle() {
-    }
+	public BmdArticle() {
+	}
 
-    public BmdArticle(BigDecimal artId, String artTitre, String artAuteur) {
-        this.artId = artId;
-        this.artTitre = artTitre;
-        this.artAuteur = artAuteur;
-    }
+	public BmdArticle(BigDecimal artId, String artAuteur, String artCote, String artTitre) {
+		this.artId = artId;
+		this.artAuteur = artAuteur;
+		this.artCote = artCote;
+		this.artTitre = artTitre;
+	}
 
-    public BmdArticle(BigDecimal artId, String artCote, String artTitre, String artAuteur, Date artDateEmprunt,
-            Date artDateRetour, Set<BmdLivre> bmdLivres, Set<BmdPanier> bmdPaniers, Set<BmdCategorie> bmdCategories,
-            Set<BmdSupportmedia> bmdSupportmedias) {
-        this.artId = artId;
-        this.artCote = artCote;
-        this.artTitre = artTitre;
-        this.artAuteur = artAuteur;
-        this.artDateEmprunt = artDateEmprunt;
-        this.artDateRetour = artDateRetour;
-        this.bmdLivres = bmdLivres;
-        this.bmdPaniers = bmdPaniers;
-        this.bmdCategories = bmdCategories;
-        this.bmdSupportmedias = bmdSupportmedias;
-    }
+	public BmdArticle(BigDecimal artId, String artAuteur, String artCote, String artTitre,
+			Set<BmdSupportmedia> bmdSupportmedias, Set<BmdLivre> bmdLivres) {
+		this.artId = artId;
+		this.artAuteur = artAuteur;
+		this.artCote = artCote;
+		this.artTitre = artTitre;
+		this.bmdSupportmedias = bmdSupportmedias;
+		this.bmdLivres = bmdLivres;
+	}
 
-    @Id
-    @SequenceGenerator(name="BMD_ARTICLE_SEQ", sequenceName = "BMD_ARTICLE_SEQ", allocationSize = 1)
+	@Id
+	@SequenceGenerator(name="BMD_ARTICLE_SEQ", sequenceName = "BMD_ARTICLE_SEQ", allocationSize = 1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="BMD_ARTICLE_SEQ")
-    @Column(name = "ART_ID", unique = true, nullable = false, precision = 22, scale = 0)
-    public BigDecimal getArtId() {
-        return this.artId;
-    }
-public void setArtId(BigDecimal artId) {
-        this.artId = artId;
-    }
+	@Column(name = "ART_ID", unique = true, nullable = false, precision = 22, scale = 0)
+	public BigDecimal getArtId() {
+		return this.artId;
+	}
 
-    @Column(name = "ART_COTE", length = 20)
-    public String getArtCote() {
-        return this.artCote;
-    }
+	public void setArtId(BigDecimal artId) {
+		this.artId = artId;
+	}
 
-    public void setArtCote(String artCote) {
-        this.artCote = artCote;
-    }
+	@Column(name = "ART_AUTEUR", nullable = false, length = 400)
+	public String getArtAuteur() {
+		return this.artAuteur;
+	}
 
-    @Column(name = "ART_TITRE", nullable = false, length = 40)
-    public String getArtTitre() {
-        return this.artTitre;
-    }
+	public void setArtAuteur(String artAuteur) {
+		this.artAuteur = artAuteur;
+	}
 
-    public void setArtTitre(String artTitre) {
-        this.artTitre = artTitre;
-    }
+	@Column(name = "ART_COTE", nullable = false, length = 80)
+	public String getArtCote() {
+		return this.artCote;
+	}
 
-    @Column(name = "ART_AUTEUR", nullable = false, length = 40)
-    public String getArtAuteur() {
-        return this.artAuteur;
-    }
+	public void setArtCote(String artCote) {
+		this.artCote = artCote;
+	}
 
-    public void setArtAuteur(String artAuteur) {
-        this.artAuteur = artAuteur;
-    }
+	@Column(name = "ART_TITRE", nullable = false, length = 400)
+	public String getArtTitre() {
+		return this.artTitre;
+	}
 
-    @Temporal(TemporalType.DATE)
-    @Column(name = "ART_DATE_EMPRUNT", length = 7)
-    public Date getArtDateEmprunt() {
-        return this.artDateEmprunt;
-    }
+	public void setArtTitre(String artTitre) {
+		this.artTitre = artTitre;
+	}
+	
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdArticle")
+	public Set<BmdSupportmedia> getBmdSupportmedias() {
+		return this.bmdSupportmedias;
+	}
 
-    public void setArtDateEmprunt(Date artDateEmprunt) {
-        this.artDateEmprunt = artDateEmprunt;
-    }
+	public void setBmdSupportmedias(Set<BmdSupportmedia> bmdSupportmedias) {
+		this.bmdSupportmedias = bmdSupportmedias;
+	}
+	
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdArticle")
+	public Set<BmdLivre> getBmdLivres() {
+		return this.bmdLivres;
+	}
 
-    @Temporal(TemporalType.DATE)
-    @Column(name = "ART_DATE_RETOUR", length = 7)
-    public Date getArtDateRetour() {
-        return this.artDateRetour;
-    }
-
-    public void setArtDateRetour(Date artDateRetour) {
-        this.artDateRetour = artDateRetour;
-    }
-
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdArticle")
-    public Set<BmdLivre> getBmdLivres() {
-        return this.bmdLivres;
-    }
-
-    public void setBmdLivres(Set<BmdLivre> bmdLivres) {
-        this.bmdLivres = bmdLivres;
-    }
-
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdArticle")
-    public Set<BmdPanier> getBmdPaniers() {
-        return this.bmdPaniers;
-    }
-public void setBmdPaniers(Set<BmdPanier> bmdPaniers) {
-        this.bmdPaniers = bmdPaniers;
-    }
-
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdArticle")
-    public Set<BmdCategorie> getBmdCategories() {
-        return this.bmdCategories;
-    }
-
-    public void setBmdCategories(Set<BmdCategorie> bmdCategories) {
-        this.bmdCategories = bmdCategories;
-    }
-
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdArticle")
-    public Set<BmdSupportmedia> getBmdSupportmedias() {
-        return this.bmdSupportmedias;
-    }
-
-    public void setBmdSupportmedias(Set<BmdSupportmedia> bmdSupportmedias) {
-        this.bmdSupportmedias = bmdSupportmedias;
-    }
+	public void setBmdLivres(Set<BmdLivre> bmdLivres) {
+		this.bmdLivres = bmdLivres;
+	}
 
 }
