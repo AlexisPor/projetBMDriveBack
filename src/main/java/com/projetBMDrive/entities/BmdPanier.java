@@ -1,5 +1,5 @@
 package com.projetBMDrive.entities;
-// Generated 28 juin 2021 � 16:47:16 by Hibernate Tools 5.0.6.Final
+// Generated 29 juin 2021 � 14:18:41 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -30,13 +31,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class BmdPanier implements java.io.Serializable {
 
 	private BigDecimal panId;
-	private BmdLivre bmdLivre;
-	private BmdSupportmedia bmdSupportmedia;
+	private BmdAdherent bmdAdherent;
 	private Date panDateEmprunt;
 	private Date panDateRetour;
-	private Set<BmdReservation> bmdReservations = new HashSet<BmdReservation>(0);
-	private Set<BmdAdherent> bmdAdherents = new HashSet<BmdAdherent>(0);
-	private Set<BmdVisiteur> bmdVisiteurs = new HashSet<BmdVisiteur>(0);
+	private BmdReservation bmdReservations;
+	private Set<BmdSupportmedia> bmdSupportmedias = new HashSet<BmdSupportmedia>(0);
+	private Set<BmdLivre> bmdLivres = new HashSet<BmdLivre>(0);
 
 	public BmdPanier() {
 	}
@@ -45,17 +45,15 @@ public class BmdPanier implements java.io.Serializable {
 		this.panId = panId;
 	}
 
-	public BmdPanier(BigDecimal panId, BmdLivre bmdLivre, BmdSupportmedia bmdSupportmedia, Date panDateEmprunt,
-			Date panDateRetour, Set<BmdReservation> bmdReservations, Set<BmdAdherent> bmdAdherents,
-			Set<BmdVisiteur> bmdVisiteurs) {
+	public BmdPanier(BigDecimal panId, BmdAdherent bmdAdherent, Date panDateEmprunt, Date panDateRetour,
+			Set<BmdSupportmedia> bmdSupportmedias, BmdReservation bmdReservations, Set<BmdLivre> bmdLivres) {
 		this.panId = panId;
-		this.bmdLivre = bmdLivre;
-		this.bmdSupportmedia = bmdSupportmedia;
+		this.bmdAdherent = bmdAdherent;
 		this.panDateEmprunt = panDateEmprunt;
 		this.panDateRetour = panDateRetour;
+		this.bmdSupportmedias = bmdSupportmedias;
 		this.bmdReservations = bmdReservations;
-		this.bmdAdherents = bmdAdherents;
-		this.bmdVisiteurs = bmdVisiteurs;
+		this.bmdLivres = bmdLivres;
 	}
 
 	@Id
@@ -70,24 +68,14 @@ public class BmdPanier implements java.io.Serializable {
 		this.panId = panId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PAN_ID_LIVRE")
-	public BmdLivre getBmdLivre() {
-		return this.bmdLivre;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "PAN_ID_ADH")
+	public BmdAdherent getBmdAdherent() {
+		return this.bmdAdherent;
 	}
 
-	public void setBmdLivre(BmdLivre bmdLivre) {
-		this.bmdLivre = bmdLivre;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PAN_ID_SUPMED")
-	public BmdSupportmedia getBmdSupportmedia() {
-		return this.bmdSupportmedia;
-	}
-
-	public void setBmdSupportmedia(BmdSupportmedia bmdSupportmedia) {
-		this.bmdSupportmedia = bmdSupportmedia;
+	public void setBmdAdherent(BmdAdherent bmdAdherent) {
+		this.bmdAdherent = bmdAdherent;
 	}
 
 	@Temporal(TemporalType.DATE)
@@ -109,35 +97,34 @@ public class BmdPanier implements java.io.Serializable {
 	public void setPanDateRetour(Date panDateRetour) {
 		this.panDateRetour = panDateRetour;
 	}
-	
+
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdPanier")
-	public Set<BmdReservation> getBmdReservations() {
+	public Set<BmdSupportmedia> getBmdSupportmedias() {
+		return this.bmdSupportmedias;
+	}
+
+	public void setBmdSupportmedias(Set<BmdSupportmedia> bmdSupportmedias) {
+		this.bmdSupportmedias = bmdSupportmedias;
+	}
+
+	@OneToOne(fetch = FetchType.EAGER, mappedBy = "bmdPanier")
+	public BmdReservation getBmdReservations() {
 		return this.bmdReservations;
 	}
 
-	public void setBmdReservations(Set<BmdReservation> bmdReservations) {
+	public void setBmdReservations(BmdReservation bmdReservations) {
 		this.bmdReservations = bmdReservations;
 	}
-	
+
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdPanier")
-	public Set<BmdAdherent> getBmdAdherents() {
-		return this.bmdAdherents;
+	public Set<BmdLivre> getBmdLivres() {
+		return this.bmdLivres;
 	}
 
-	public void setBmdAdherents(Set<BmdAdherent> bmdAdherents) {
-		this.bmdAdherents = bmdAdherents;
-	}
-	
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdPanier")
-	public Set<BmdVisiteur> getBmdVisiteurs() {
-		return this.bmdVisiteurs;
-	}
-
-	public void setBmdVisiteurs(Set<BmdVisiteur> bmdVisiteurs) {
-		this.bmdVisiteurs = bmdVisiteurs;
+	public void setBmdLivres(Set<BmdLivre> bmdLivres) {
+		this.bmdLivres = bmdLivres;
 	}
 
 }

@@ -1,5 +1,5 @@
 package com.projetBMDrive.entities;
-// Generated 28 juin 2021 � 16:47:16 by Hibernate Tools 5.0.6.Final
+// Generated 29 juin 2021 � 14:18:41 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -28,25 +28,28 @@ public class BmdArticle implements java.io.Serializable {
 	private String artAuteur;
 	private String artCote;
 	private String artTitre;
+	private BigDecimal artQuantite;
 	private Set<BmdSupportmedia> bmdSupportmedias = new HashSet<BmdSupportmedia>(0);
 	private Set<BmdLivre> bmdLivres = new HashSet<BmdLivre>(0);
 
 	public BmdArticle() {
 	}
 
-	public BmdArticle(BigDecimal artId, String artAuteur, String artCote, String artTitre) {
+	public BmdArticle(BigDecimal artId, String artAuteur, String artCote, String artTitre, BigDecimal artQuantite) {
 		this.artId = artId;
 		this.artAuteur = artAuteur;
 		this.artCote = artCote;
 		this.artTitre = artTitre;
+		this.artQuantite = artQuantite;
 	}
 
-	public BmdArticle(BigDecimal artId, String artAuteur, String artCote, String artTitre,
+	public BmdArticle(BigDecimal artId, String artAuteur, String artCote, String artTitre, BigDecimal artQuantite,
 			Set<BmdSupportmedia> bmdSupportmedias, Set<BmdLivre> bmdLivres) {
 		this.artId = artId;
 		this.artAuteur = artAuteur;
 		this.artCote = artCote;
 		this.artTitre = artTitre;
+		this.artQuantite = artQuantite;
 		this.bmdSupportmedias = bmdSupportmedias;
 		this.bmdLivres = bmdLivres;
 	}
@@ -63,7 +66,7 @@ public class BmdArticle implements java.io.Serializable {
 		this.artId = artId;
 	}
 
-	@Column(name = "ART_AUTEUR", nullable = false, length = 400)
+	@Column(name = "ART_AUTEUR", nullable = false, length = 1600)
 	public String getArtAuteur() {
 		return this.artAuteur;
 	}
@@ -72,7 +75,7 @@ public class BmdArticle implements java.io.Serializable {
 		this.artAuteur = artAuteur;
 	}
 
-	@Column(name = "ART_COTE", nullable = false, length = 80)
+	@Column(name = "ART_COTE", nullable = false, length = 320)
 	public String getArtCote() {
 		return this.artCote;
 	}
@@ -81,7 +84,7 @@ public class BmdArticle implements java.io.Serializable {
 		this.artCote = artCote;
 	}
 
-	@Column(name = "ART_TITRE", nullable = false, length = 400)
+	@Column(name = "ART_TITRE", nullable = false, length = 1600)
 	public String getArtTitre() {
 		return this.artTitre;
 	}
@@ -89,7 +92,16 @@ public class BmdArticle implements java.io.Serializable {
 	public void setArtTitre(String artTitre) {
 		this.artTitre = artTitre;
 	}
-	
+
+	@Column(name = "ART_QUANTITE", nullable = false, precision = 22, scale = 0)
+	public BigDecimal getArtQuantite() {
+		return this.artQuantite;
+	}
+
+	public void setArtQuantite(BigDecimal artQuantite) {
+		this.artQuantite = artQuantite;
+	}
+
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdArticle")
 	public Set<BmdSupportmedia> getBmdSupportmedias() {
@@ -99,7 +111,7 @@ public class BmdArticle implements java.io.Serializable {
 	public void setBmdSupportmedias(Set<BmdSupportmedia> bmdSupportmedias) {
 		this.bmdSupportmedias = bmdSupportmedias;
 	}
-	
+
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdArticle")
 	public Set<BmdLivre> getBmdLivres() {

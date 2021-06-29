@@ -1,5 +1,5 @@
 package com.projetBMDrive.entities;
-// Generated 28 juin 2021 � 16:47:16 by Hibernate Tools 5.0.6.Final
+// Generated 29 juin 2021 � 14:18:41 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
 
@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -51,7 +51,7 @@ public class BmdCasier implements java.io.Serializable {
 		this.casId = casId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "CAS_ID_RES")
 	public BmdReservation getBmdReservation() {
 		return this.bmdReservation;
@@ -61,7 +61,7 @@ public class BmdCasier implements java.io.Serializable {
 		this.bmdReservation = bmdReservation;
 	}
 
-	@Column(name = "CAS_ETAT", nullable = false, length = 80)
+	@Column(name = "CAS_ETAT", nullable = false, length = 320)
 	public String getCasEtat() {
 		return this.casEtat;
 	}

@@ -1,5 +1,5 @@
 package com.projetBMDrive.entities;
-// Generated 28 juin 2021 � 16:47:16 by Hibernate Tools 5.0.6.Final
+// Generated 29 juin 2021 � 14:18:41 by Hibernate Tools 5.0.6.Final
 
 import java.math.BigDecimal;
 
@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -23,9 +23,9 @@ public class BmdAdherent implements java.io.Serializable {
 
 	private BigDecimal adhId;
 	private BmdIdentite bmdIdentite;
-	private BmdPanier bmdPanier;
 	private String adhMotDePasse;
 	private String adhNomUtilisateur;
+	private BmdPanier bmdPaniers;
 
 	public BmdAdherent() {
 	}
@@ -37,13 +37,13 @@ public class BmdAdherent implements java.io.Serializable {
 		this.adhNomUtilisateur = adhNomUtilisateur;
 	}
 
-	public BmdAdherent(BigDecimal adhId, BmdIdentite bmdIdentite, BmdPanier bmdPanier, String adhMotDePasse,
-			String adhNomUtilisateur) {
+	public BmdAdherent(BigDecimal adhId, BmdIdentite bmdIdentite, String adhMotDePasse, String adhNomUtilisateur,
+			BmdPanier bmdPaniers) {
 		this.adhId = adhId;
 		this.bmdIdentite = bmdIdentite;
-		this.bmdPanier = bmdPanier;
 		this.adhMotDePasse = adhMotDePasse;
 		this.adhNomUtilisateur = adhNomUtilisateur;
+		this.bmdPaniers = bmdPaniers;
 	}
 
 	@Id
@@ -58,7 +58,7 @@ public class BmdAdherent implements java.io.Serializable {
 		this.adhId = adhId;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ADH_ID_IDENTITE", nullable = false)
 	public BmdIdentite getBmdIdentite() {
 		return this.bmdIdentite;
@@ -68,17 +68,7 @@ public class BmdAdherent implements java.io.Serializable {
 		this.bmdIdentite = bmdIdentite;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ADH_ID_PANIER")
-	public BmdPanier getBmdPanier() {
-		return this.bmdPanier;
-	}
-
-	public void setBmdPanier(BmdPanier bmdPanier) {
-		this.bmdPanier = bmdPanier;
-	}
-
-	@Column(name = "ADH_MOT_DE_PASSE", nullable = false, length = 80)
+	@Column(name = "ADH_MOT_DE_PASSE", nullable = false, length = 320)
 	public String getAdhMotDePasse() {
 		return this.adhMotDePasse;
 	}
@@ -87,13 +77,22 @@ public class BmdAdherent implements java.io.Serializable {
 		this.adhMotDePasse = adhMotDePasse;
 	}
 
-	@Column(name = "ADH_NOM_UTILISATEUR", nullable = false, length = 80)
+	@Column(name = "ADH_NOM_UTILISATEUR", nullable = false, length = 320)
 	public String getAdhNomUtilisateur() {
 		return this.adhNomUtilisateur;
 	}
 
 	public void setAdhNomUtilisateur(String adhNomUtilisateur) {
 		this.adhNomUtilisateur = adhNomUtilisateur;
+	}
+
+	@OneToOne(fetch = FetchType.EAGER, mappedBy = "bmdAdherent")
+	public BmdPanier getBmdPaniers() {
+		return this.bmdPaniers;
+	}
+
+	public void setBmdPaniers(BmdPanier bmdPaniers) {
+		this.bmdPaniers = bmdPaniers;
 	}
 
 }
