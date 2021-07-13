@@ -98,7 +98,7 @@ public class BmdPanier implements java.io.Serializable {
 		this.panDateRetour = panDateRetour;
 	}
 
-	@JsonIgnore
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bmdPanier")
 	public Set<BmdSupportmedia> getBmdSupportmedias() {
 		return this.bmdSupportmedias;

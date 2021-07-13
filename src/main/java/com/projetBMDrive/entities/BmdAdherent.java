@@ -3,15 +3,13 @@ package com.projetBMDrive.entities;
 
 import java.math.BigDecimal;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -47,8 +45,8 @@ public class BmdAdherent implements java.io.Serializable {
 	}
 
 	@Id
-	@SequenceGenerator(name="BMD_ADHERENT_SEQ", sequenceName = "BMD_ADHERENT_SEQ", allocationSize = 1)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="BMD_ADHERENT_SEQ")
+	//@SequenceGenerator(name="BMD_ADHERENT_SEQ", sequenceName = "BMD_ADHERENT_SEQ", allocationSize = 1)
+    //@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="BMD_ADHERENT_SEQ")
 	@Column(name = "ADH_ID", unique = true, nullable = false, precision = 22, scale = 0)
 	public BigDecimal getAdhId() {
 		return this.adhId;
@@ -58,7 +56,8 @@ public class BmdAdherent implements java.io.Serializable {
 		this.adhId = adhId;
 	}
 
-	@OneToOne(fetch = FetchType.EAGER)
+	
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "ADH_ID_IDENTITE", nullable = false)
 	public BmdIdentite getBmdIdentite() {
 		return this.bmdIdentite;

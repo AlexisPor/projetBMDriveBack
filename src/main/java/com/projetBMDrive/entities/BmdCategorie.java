@@ -36,6 +36,10 @@ public class BmdCategorie implements java.io.Serializable {
 		this.catId = catId;
 		this.catLibelle = catLibelle;
 	}
+	
+	public BmdCategorie(String catLibelle) {
+		this.catLibelle = catLibelle;
+	}
 
 	public BmdCategorie(BigDecimal catId, String catLibelle, Set<BmdLivre> bmdLivres,
 			Set<BmdSupportmedia> bmdSupportmedias) {

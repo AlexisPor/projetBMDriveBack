@@ -24,6 +24,7 @@ public class AdherentServiceImpl implements AdherentService {
 	@Override
 	public void addAdherent(BmdAdherent adherent) {
 		ideService.addIdentite(adherent.getBmdIdentite());
+		adherent.setAdhId(adherent.getBmdIdentite().getIdeId());
 		adherentRepo.save(adherent);
 	}
 
@@ -34,6 +35,7 @@ public class AdherentServiceImpl implements AdherentService {
 
 	@Override
 	public void updateAdherent(BmdAdherent adherent) {
+		adherent.getBmdIdentite().setIdeId(adherent.getAdhId());
 		ideService.updateIdentite(adherent.getBmdIdentite());
 		adherentRepo.save(adherent);
 	}
