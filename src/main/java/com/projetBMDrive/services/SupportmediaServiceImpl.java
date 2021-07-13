@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.projetBMDrive.entities.BmdArticle;
 import com.projetBMDrive.entities.BmdSupportmedia;
 import com.projetBMDrive.repositories.ArticleRepository;
+import com.projetBMDrive.repositories.CategorieRepository;
 import com.projetBMDrive.repositories.SupportmediaRepository;
 
 @Service
@@ -20,10 +22,12 @@ public class SupportmediaServiceImpl  implements SupportmediaService{
 	
 	@Autowired
 	private ArticleRepository articleRepos;
-
+	
 	@Override
 	public void addSupportmedia(BmdSupportmedia supmed) {
+		
 		articleRepos.save(supmed.getBmdArticle());
+		supmed.setSupId(supmed.getBmdArticle().getArtId());
 		supmedRepos.save(supmed);
 	}
 
@@ -34,6 +38,7 @@ public class SupportmediaServiceImpl  implements SupportmediaService{
 
 	@Override
 	public void updateSupportmedia(BmdSupportmedia supmed) {
+		supmed.getBmdArticle().setArtId(supmed.getSupId());
 		articleRepos.save(supmed.getBmdArticle());
 		supmedRepos.save(supmed);
 	}

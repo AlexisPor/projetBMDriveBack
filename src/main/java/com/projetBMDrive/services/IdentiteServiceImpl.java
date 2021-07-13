@@ -23,6 +23,7 @@ public class IdentiteServiceImpl implements IdentiteService{
 	@Override
 	public void addIdentite(BmdIdentite identite) {
 		adrService.addAdresse(identite.getBmdAdresse());
+		identite.setIdeId(identite.getBmdAdresse().getAdrId());
 		identiteRepo.save(identite);
 	}
 
@@ -33,6 +34,7 @@ public class IdentiteServiceImpl implements IdentiteService{
 
 	@Override
 	public void updateIdentite(BmdIdentite identite) {
+		identite.getBmdAdresse().setAdrId(identite.getIdeId());
 		adrService.updateAdresse(identite.getBmdAdresse());
 		identiteRepo.save(identite);
 	}

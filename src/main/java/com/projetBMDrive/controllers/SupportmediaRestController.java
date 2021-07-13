@@ -56,7 +56,6 @@ public class SupportmediaRestController {
 	@PostMapping("/smMap")
 	public void addSuppermedia(@RequestBody BmdSupportmedia supmedia) 
 	{
-		System.err.println("supmedia="+supmedia);
 		supmedService.addSupportmedia(supmedia);
 	}
 	

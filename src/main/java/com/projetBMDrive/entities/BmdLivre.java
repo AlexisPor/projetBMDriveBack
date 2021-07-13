@@ -43,8 +43,8 @@ public class BmdLivre implements java.io.Serializable {
 	}
 
 	@Id
-	@SequenceGenerator(name="BMD_LIVRE_SEQ", sequenceName = "BMD_LIVRE_SEQ", allocationSize = 1)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="BMD_LIVRE_SEQ")
+	//@SequenceGenerator(name="BMD_LIVRE_SEQ", sequenceName = "BMD_LIVRE_SEQ", allocationSize = 1)
+    //@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="BMD_LIVRE_SEQ")
 	@Column(name = "LIV_ID", unique = true, nullable = false, precision = 22, scale = 0)
 	public BigDecimal getLivId() {
 		return this.livId;
@@ -74,7 +74,7 @@ public class BmdLivre implements java.io.Serializable {
 		this.bmdCategorie = bmdCategorie;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "LIV_PAN_ID")
 	public BmdPanier getBmdPanier() {
 		return this.bmdPanier;

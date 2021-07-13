@@ -24,6 +24,7 @@ public class LivreServiceImpl  implements LivreService{
 	@Override
 	public void addLivre(BmdLivre livre) {
 		artRepo.save(livre.getBmdArticle());
+		livre.setLivId(livre.getBmdArticle().getArtId());
 		livreRepos.save(livre);
 	}
 
@@ -34,13 +35,13 @@ public class LivreServiceImpl  implements LivreService{
 
 	@Override
 	public void updateLivre(BmdLivre livre) {
+		livre.getBmdArticle().setArtId(livre.getLivId());
 		artRepo.save(livre.getBmdArticle());
 		livreRepos.save(livre);
 	}
 
 	@Override
 	public void deleteLivre(BmdLivre livre) {
-		artRepo.delete(livre.getBmdArticle());
 		livreRepos.delete(livre);
 		
 	}
