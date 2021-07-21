@@ -49,5 +49,10 @@ public class AdherentServiceImpl implements AdherentService {
 	public BmdAdherent findByIdAdherent(BigDecimal adhId) {
 		return adherentRepo.findById(adhId).get();
 	}
+
+	@Override
+	public List<BmdAdherent> findByBmdIdentiteIdeNomContains(String ideNom) {
+		return adherentRepo.findByBmdIdentiteIdeNomContains(ideNom);
+	}
 	
 }

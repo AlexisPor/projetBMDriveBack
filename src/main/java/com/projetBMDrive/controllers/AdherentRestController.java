@@ -72,4 +72,11 @@ public class AdherentRestController {
 		System.err.println(adhId);
 		return adhService.findByIdAdherent(adhId);
 	}
+	
+	@GetMapping("/adhMap/search/{ideNom}")
+	public List<BmdAdherent> searchAdherentByNom(@PathVariable(name="ideNom") String ideNom){
+		System.err.println(ideNom);
+		return adhService.findByBmdIdentiteIdeNomContains(ideNom);
+		
+	}
 }
