@@ -16,4 +16,6 @@ public interface AdherentService  {
 	public List<BmdAdherent> findAllAdherent();
 	
 	BmdAdherent findByIdAdherent(BigDecimal adhId);
+	
+	List<BmdAdherent> findByBmdIdentiteIdeNomContains(String ideNom);
 }
