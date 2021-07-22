@@ -42,5 +42,10 @@ public class ArticleServiceImpl  implements ArticleService{
 		return articleRepos.findById(id).get();
 	}
 
+	@Override
+	public List<BmdArticle> findByArtAuteurOrArtTitre(String artAuteur, String artTitre) {
+		return articleRepos.findByArtAuteurOrArtTitre(artAuteur, artTitre);
+	}
+
 	
 }

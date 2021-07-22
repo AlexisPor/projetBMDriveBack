@@ -16,5 +16,7 @@ public interface ArticleService {
     public void deleteArticle(BmdArticle article);
 
     public BmdArticle findArticleById(BigDecimal id);
+    
+    List<BmdArticle> findByArtAuteurOrArtTitre(String artAuteur, String artTitre);
 
 }
