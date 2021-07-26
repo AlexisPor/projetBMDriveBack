@@ -81,9 +81,12 @@ public class ArticleRestController {
 		articleService.deleteArticle(article);
 	}
 	
-	@GetMapping("/artMap/search/{artAuteur},{artTitre}") 
-		public List<BmdArticle> searchAllByAuteurOrTitre(@PathVariable("artAuteur , rtTitre") String artAuteur, String artTitre) {
-			return articleService.findByArtAuteurOrArtTitre(artAuteur, artTitre);
+	@GetMapping("/artMap/search/{artTitre}") 
+		public List<BmdArticle> searchAllByTitre(@PathVariable("artTitre") String artTitre) {
+		System.err.println(artTitre);
+			return articleService.findByArtTitreContains(artTitre);
+			
+			
 		
 	}
 }

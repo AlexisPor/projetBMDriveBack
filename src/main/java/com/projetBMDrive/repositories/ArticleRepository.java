@@ -10,6 +10,6 @@ import java.util.List;
 
 public interface ArticleRepository extends JpaRepository<BmdArticle, BigDecimal>{
 	
-	List<BmdArticle> findByArtAuteurOrArtTitre(String artAuteur, String artTitre);
+	List<BmdArticle> findByArtTitreContains(String artTitre);
 
 }

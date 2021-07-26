@@ -43,8 +43,8 @@ public class ArticleServiceImpl  implements ArticleService{
 	}
 
 	@Override
-	public List<BmdArticle> findByArtAuteurOrArtTitre(String artAuteur, String artTitre) {
-		return articleRepos.findByArtAuteurOrArtTitre(artAuteur, artTitre);
+	public List<BmdArticle> findByArtTitreContains(String artTitre) {
+		return articleRepos.findByArtTitreContains(artTitre);
 	}
 
 	

@@ -17,6 +17,6 @@ public interface ArticleService {
 
     public BmdArticle findArticleById(BigDecimal id);
     
-    List<BmdArticle> findByArtAuteurOrArtTitre(String artAuteur, String artTitre);
+    List<BmdArticle> findByArtTitreContains(String artTitre);
 
 }
